@@ -1,0 +1,1955 @@
+<!doctype html>
+<html lang="ja" data-theme="light" data-dock="mini">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>よくある質問 | みなと市 くらしの手続き</title>
+<meta name="description" content="みなと市のくらしの手続きについて、ふだんの言葉で質問を入力すると、当てはまりそうな Q&A を一致率つきで案内します。">
+<script>
+(function () {
+  var t = null;
+  try { t = new URLSearchParams(location.search).get("theme"); } catch (e) {}
+  if (t !== "dark" && t !== "light") {
+    t = null;
+    try { t = localStorage.getItem("faq-theme"); } catch (e) {}
+  }
+  if (t !== "dark" && t !== "light") {
+    t = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  }
+  document.documentElement.setAttribute("data-theme", t);
+})();
+</script>
+<style>
+:root {
+  --page: oklch(98.5% .001 286.376);
+  --canvas: oklch(96.1% .002 247.84);
+  --surface: oklch(100% 0 0);
+  --inset: oklch(97.9% .002 247.839);
+  --field: oklch(94.6% .003 264.542);
+  --hover: oklch(97% .002 247.839);
+  --hover-2: oklch(93.3% .003 247.86);
+  --line: oklch(92.4% .004 264.542);
+  --line-strong: oklch(86% .006 258.326);
+  --ink: oklch(24.7% .006 258.361);
+  --ink-2: oklch(45% .01 264.477);
+  --ink-3: oklch(55% .01 264.505);
+  --accent: oklch(58% .2 255.3);
+  --accent-ink: oklch(50% .19 256);
+  --accent-tint: oklch(95.5% .022 252.878);
+  --mark: oklch(92% .045 252.878);
+  --on-accent: oklch(100% 0 0);
+  --shadow-card: 0 0 0 1px var(--line), 0 1px 2px oklch(0% 0 0 / .04), 0 4px 12px oklch(0% 0 0 / .03);
+  --shadow-field: 0 0 0 1px var(--line-strong), 0 1px 2px oklch(0% 0 0 / .05);
+  --scheme: light;
+
+  --radius-chip: 6px;
+  --radius-control: 8px;
+  --radius-card: 10px;
+  --radius-window: 14px;
+  --ease-out: cubic-bezier(.23, 1, .32, 1);
+
+  --font: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic UI", "Meiryo", system-ui, sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, "Roboto Mono", monospace;
+
+  --gutter: 24px;
+  --row-h: 88px;
+  --none-h: 48px;
+  --dock-w: 400px;
+  --dock-mini: 48px;
+}
+:root[data-theme="dark"] {
+  --page: oklch(20.9% .004 264.477);
+  --canvas: oklch(23.1% .004 264.487);
+  --surface: oklch(26% .006 271.191);
+  --inset: oklch(24.3% .004 264.492);
+  --field: oklch(31.5% .006 271.223);
+  --hover: oklch(28.9% .006 271.22);
+  --hover-2: oklch(31.8% .007 274.747);
+  --line: oklch(31.5% .006 258.354);
+  --line-strong: oklch(38% .007 264.474);
+  --ink: oklch(96.4% .002 247.839);
+  --ink-2: oklch(76% .008 260.731);
+  --ink-3: oklch(64% .009 264.505);
+  --accent: oklch(68% .173 253.301);
+  --accent-ink: oklch(78.8% .113 248.33);
+  --accent-tint: oklch(68% .173 253.301 / .16);
+  --mark: oklch(68% .173 253.301 / .3);
+  --on-accent: oklch(100% 0 0);
+  --shadow-card: 0 0 0 1px oklch(100% 0 0 / .11), 0 1px 2px oklch(0% 0 0 / .2), 0 2px 6px oklch(0% 0 0 / .2);
+  --shadow-field: 0 0 0 1px oklch(100% 0 0 / .16), 0 1px 2px oklch(0% 0 0 / .3);
+  --scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { color-scheme: var(--scheme); -webkit-text-size-adjust: 100%; }
+html, body { margin: 0; background: var(--page); color: var(--ink); }
+body {
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+h1, h2, h3, p, ul, ol, dl, dd, dt { margin: 0; padding: 0; }
+button, input, select, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+a { color: var(--accent-ink); text-underline-offset: 3px; }
+:focus { outline: none; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+[hidden] { display: none !important; }
+.mono { font-family: var(--mono); }
+.tnum { font-variant-numeric: tabular-nums; }
+.sr-only {
+  position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* ---- 製品の画面 ---------------------------------------------------- */
+
+.site {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  container-type: inline-size;
+  container-name: site;
+}
+.wrap { width: 100%; max-width: 1088px; margin: 0 auto; padding: 0 var(--gutter); }
+
+.site-head { border-bottom: 1px solid var(--line); background: var(--page); }
+.site-head .wrap { display: flex; align-items: center; gap: 16px; height: 60px; }
+.site-name {
+  display: flex; align-items: baseline; gap: 10px; min-width: 0;
+  color: var(--ink); text-decoration: none; font-weight: 700; font-size: 17px; white-space: nowrap;
+  border-radius: var(--radius-chip);
+}
+.site-name small { font-size: 13px; font-weight: 400; color: var(--ink-2); }
+.head-space { flex: 1; }
+.head-link { font-size: 15px; color: var(--ink-2); text-decoration: none; white-space: nowrap; border-radius: var(--radius-chip); }
+.head-link:hover { color: var(--ink); text-decoration: underline; }
+
+.seg {
+  display: inline-flex; padding: 3px; gap: 2px; flex: none;
+  background: var(--field); border-radius: var(--radius-control);
+}
+.seg button {
+  height: 30px; padding: 0 12px; border: 0; border-radius: 6px;
+  background: transparent; color: var(--ink-2); font-size: 14px; line-height: 1; white-space: nowrap;
+  transition: background-color .15s var(--ease-out), color .15s var(--ease-out);
+}
+.seg button:hover { color: var(--ink); }
+.seg button[aria-pressed="true"] { background: var(--surface); color: var(--ink); font-weight: 600; box-shadow: var(--shadow-field); }
+
+main { flex: 1; padding: 40px 0 56px; }
+
+.lead { font-size: 22px; font-weight: 700; line-height: 1.4; letter-spacing: .01em; }
+.lead-sub { margin-top: 4px; font-size: 15px; color: var(--ink-2); }
+
+.search {
+  position: relative; margin-top: 20px;
+  display: grid; grid-template-columns: 56px minmax(0, 1fr) 84px; align-items: center;
+  height: 64px; border-radius: var(--radius-window);
+  background: var(--surface); box-shadow: var(--shadow-field);
+  transition: box-shadow .15s var(--ease-out);
+  overflow: hidden;
+}
+.search:focus-within { box-shadow: 0 0 0 2px var(--accent); }
+.search svg { justify-self: center; width: 22px; height: 22px; color: var(--ink-3); }
+.search input {
+  width: 100%; height: 64px; padding: 0; border: 0; background: transparent;
+  font-size: 20px; line-height: 1.3; outline: none;
+}
+.search input::placeholder { color: var(--ink-3); }
+.search-side { justify-self: end; padding-right: 14px; display: flex; align-items: center; }
+.kbd {
+  display: inline-grid; place-items: center; min-width: 26px; height: 26px; padding: 0 7px;
+  border-radius: var(--radius-chip); background: var(--field); color: var(--ink-2);
+  font-family: var(--mono); font-size: 13px; line-height: 1;
+}
+.clear-btn {
+  height: 36px; padding: 0 12px; border: 0; border-radius: var(--radius-control);
+  background: var(--field); color: var(--ink); font-size: 14px; white-space: nowrap;
+}
+.clear-btn:hover { background: var(--hover-2); }
+.search-busy {
+  position: absolute; left: 0; right: 0; bottom: 0; height: 2px; overflow: hidden; opacity: 0;
+  transition: opacity .15s var(--ease-out);
+}
+.search-busy::before {
+  content: ""; position: absolute; top: 0; bottom: 0; left: 0; width: 30%;
+  background: var(--accent); border-radius: 2px;
+  animation: busy 1s linear infinite;
+}
+.search[data-busy="true"] .search-busy { opacity: 1; }
+@keyframes busy { from { transform: translateX(-100%); } to { transform: translateX(334%); } }
+
+.block-head {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  height: 36px; margin-top: 28px; margin-bottom: 8px;
+}
+.block-title { font-size: 15px; font-weight: 600; color: var(--ink-2); white-space: nowrap; }
+.block-side { font-size: 13px; color: var(--ink-3); white-space: nowrap; }
+.text-btn {
+  height: 32px; padding: 0 10px; border: 0; border-radius: var(--radius-control);
+  background: transparent; color: var(--accent-ink); font-size: 14px; white-space: nowrap;
+}
+.text-btn:hover { background: var(--accent-tint); }
+.text-btn[data-off="true"] { visibility: hidden; }
+
+.cats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; list-style: none; }
+.cat {
+  position: relative; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 8px;
+  width: 100%; height: 52px; padding: 0 14px; border: 0; border-radius: var(--radius-control);
+  background: var(--surface); box-shadow: 0 0 0 1px var(--line);
+  text-align: left; overflow: hidden; color: var(--ink);
+  transition: background-color .15s var(--ease-out), box-shadow .15s var(--ease-out), color .15s var(--ease-out);
+}
+.cat:hover { background: var(--hover); }
+.cat-name { font-size: 15px; white-space: nowrap; }
+.cat-val { font-family: var(--mono); font-size: 14px; font-variant-numeric: tabular-nums; color: var(--ink-2); white-space: nowrap; }
+.cat-bar { position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: transparent; }
+.cat-bar i { display: block; height: 100%; width: 0; background: var(--accent); transition: width .3s var(--ease-out); }
+.cat[data-level="low"] { color: var(--ink-2); }
+.cat[data-level="low"] .cat-val { color: var(--ink-3); }
+.cat[data-level="high"] .cat-name { font-weight: 600; }
+.cat[data-level="high"] .cat-val { color: var(--ink); font-weight: 700; }
+.cat[aria-pressed="true"] { background: var(--accent-tint); box-shadow: 0 0 0 1.5px var(--accent); color: var(--ink); }
+
+.cols { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0 28px; align-items: start; }
+.col { min-width: 0; }
+
+.notice { height: 24px; margin-bottom: 10px; font-size: 14px; line-height: 24px; color: var(--ink-2); white-space: nowrap; overflow: hidden; }
+.notice[data-on="true"] { color: var(--ink); }
+.notice a { display: none; margin-left: 4px; }
+
+.list {
+  height: calc(var(--row-h) * 3 + var(--none-h));
+  border-radius: var(--radius-card); background: var(--surface); box-shadow: var(--shadow-card);
+  overflow: hidden; list-style: none;
+}
+.list[data-mode="popular"] { overflow-y: auto; overscroll-behavior: contain; }
+.list[data-dim="true"] .row-main { opacity: .45; }
+.list li + li { box-shadow: inset 0 1px 0 var(--line); }
+.row {
+  position: relative; display: grid; grid-template-columns: minmax(0, 1fr) 80px; align-items: center; gap: 16px;
+  width: 100%; height: var(--row-h); padding: 0 18px; border: 0; background: transparent; text-align: left;
+  transition: background-color .15s var(--ease-out);
+}
+.row:hover { background: var(--hover); }
+.row:focus-visible { outline-offset: -2px; border-radius: var(--radius-card); }
+.row[aria-current="true"] { background: var(--accent-tint); }
+.row[aria-current="true"]::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--accent); }
+.row-main { min-width: 0; transition: opacity .15s var(--ease-out); }
+.row-title {
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden;
+  font-size: 16px; line-height: 1.45; color: var(--ink);
+}
+.row-title mark { background: var(--mark); color: inherit; border-radius: 3px; padding: 1px 0; }
+.row-meta { display: block; margin-top: 2px; font-size: 13px; line-height: 1.5; color: var(--ink-2); white-space: nowrap; }
+.row-side { display: block; text-align: right; }
+.row-num { display: block; font-family: var(--mono); font-variant-numeric: tabular-nums; font-size: 18px; font-weight: 700; line-height: 1.3; color: var(--ink); }
+.row-num small { font-size: 13px; font-weight: 400; color: var(--ink-2); margin-left: 1px; }
+.row-sub { display: block; font-size: 13px; line-height: 1.5; color: var(--ink-3); }
+.bar { display: block; height: 4px; margin-top: 6px; border-radius: 2px; background: var(--field); overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--accent); border-radius: 2px; transition: width .3s var(--ease-out); }
+.row-none { height: var(--none-h); }
+.row-none .row-title { font-size: 15px; color: var(--ink-2); -webkit-line-clamp: 1; }
+.row-none .row-num { font-size: 15px; font-weight: 400; color: var(--ink-2); }
+.row-none:hover .row-title { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+
+.skel { display: grid; grid-template-columns: minmax(0, 1fr) 80px; align-items: center; gap: 16px; height: var(--row-h); padding: 0 18px; }
+.skel.small { height: var(--none-h); }
+.skel b, .skel u { display: block; border-radius: 4px; background: var(--field); animation: pulse 1.1s ease-in-out infinite; }
+.skel b { height: 14px; width: 72%; }
+.skel b + b { margin-top: 10px; width: 34%; height: 11px; }
+.skel u { height: 14px; width: 56px; justify-self: end; }
+@keyframes pulse { 50% { opacity: .5; } }
+
+.keys { margin-top: 12px; font-size: 13px; color: var(--ink-3); display: none; }
+.keys .kbd { min-width: 22px; height: 22px; font-size: 12px; margin: 0 2px 0 10px; }
+.keys .kbd:first-child { margin-left: 0; }
+
+.detail {
+  min-height: calc(var(--row-h) * 3 + var(--none-h));
+  border-radius: var(--radius-card); background: var(--surface); box-shadow: var(--shadow-card);
+  padding: 22px 24px 20px;
+}
+.detail-empty { display: grid; place-items: center; min-height: calc(var(--row-h) * 3 + var(--none-h) - 42px); color: var(--ink-2); font-size: 15px; text-align: center; }
+.detail-cat { font-size: 13px; color: var(--ink-2); }
+.detail-q { margin-top: 2px; font-size: 20px; font-weight: 700; line-height: 1.45; border-radius: 4px; }
+.detail-a { margin-top: 12px; font-size: 17px; line-height: 1.75; }
+.acc { margin-top: 18px; border-bottom: 1px solid var(--line); }
+.acc details { border-top: 1px solid var(--line); }
+.acc summary {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  min-height: 48px; padding: 0 2px; cursor: pointer; list-style: none; font-weight: 600; font-size: 16px;
+  border-radius: 4px;
+}
+.acc summary::-webkit-details-marker { display: none; }
+.acc summary::after {
+  content: ""; flex: none; width: 8px; height: 8px; margin-right: 6px;
+  border-right: 2px solid var(--ink-3); border-bottom: 2px solid var(--ink-3);
+  transform: translateY(-2px) rotate(45deg); transition: transform .15s var(--ease-out);
+}
+.acc details[open] summary::after { transform: translateY(2px) rotate(-135deg); }
+.acc summary:hover { color: var(--accent-ink); }
+.acc-body { padding: 0 2px 16px; }
+.acc-body ul, .acc-body ol, .prose ul, .prose ol { padding-left: 1.4em; }
+.acc-body li + li, .prose li + li { margin-top: 4px; }
+.open-line { margin-top: 16px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; }
+.open-line a { font-weight: 600; }
+.path { font-family: var(--mono); font-size: 13px; color: var(--ink-2); overflow-wrap: anywhere; }
+
+.site-foot { border-top: 1px solid var(--line); padding: 20px 0 28px; font-size: 13px; color: var(--ink-2); }
+.site-foot .wrap { display: flex; flex-wrap: wrap; gap: 4px 24px; justify-content: space-between; }
+
+/* 記事ページ・問い合わせページ */
+.page { max-width: 760px; }
+.crumbs { font-size: 13px; color: var(--ink-2); display: flex; flex-wrap: wrap; gap: 4px 8px; }
+.crumbs a { color: var(--ink-2); }
+.page h1 { margin-top: 12px; font-size: 26px; line-height: 1.4; font-weight: 700; }
+.page-answer { margin-top: 16px; font-size: 17px; line-height: 1.8; }
+.prose h2 { margin-top: 32px; margin-bottom: 8px; padding-bottom: 8px; border-bottom: 1px solid var(--line); font-size: 18px; font-weight: 700; }
+.page-meta { margin-top: 32px; font-size: 13px; color: var(--ink-2); }
+.related { margin-top: 12px; list-style: none; border-radius: var(--radius-card); background: var(--surface); box-shadow: var(--shadow-card); overflow: hidden; }
+.related li + li { box-shadow: inset 0 1px 0 var(--line); }
+.related a { display: block; padding: 14px 18px; color: var(--ink); text-decoration: none; }
+.related a:hover { background: var(--hover); }
+.related a:focus-visible { outline-offset: -2px; }
+.back { display: inline-block; margin-top: 28px; font-weight: 600; }
+
+.desks { margin-top: 8px; border-radius: var(--radius-card); background: var(--surface); box-shadow: var(--shadow-card); overflow: hidden; }
+.desks div { display: grid; grid-template-columns: 9em minmax(0, 1fr); gap: 16px; padding: 14px 18px; }
+.desks div + div { box-shadow: inset 0 1px 0 var(--line); }
+.desks dt { font-weight: 600; }
+.desks dd { color: var(--ink); }
+.form { margin-top: 8px; display: grid; gap: 16px; }
+.form label { display: grid; gap: 6px; font-weight: 600; font-size: 15px; }
+.form label span { font-weight: 400; color: var(--ink-2); font-size: 13px; }
+.form input, .form select, .form textarea {
+  width: 100%; padding: 10px 12px; border: 0; border-radius: var(--radius-control);
+  background: var(--surface); box-shadow: var(--shadow-field); font-size: 16px; font-weight: 400; line-height: 1.6;
+}
+.form input, .form select { height: 46px; }
+.form textarea { min-height: 132px; resize: vertical; }
+.form input:focus-visible, .form select:focus-visible, .form textarea:focus-visible { outline: none; box-shadow: 0 0 0 2px var(--accent); }
+.primary {
+  justify-self: start; height: 46px; padding: 0 20px; border: 0; border-radius: var(--radius-control);
+  background: var(--accent); color: var(--on-accent); font-weight: 600; font-size: 16px;
+}
+.primary:hover { filter: brightness(1.06); }
+.form-msg { min-height: 28px; font-size: 15px; }
+
+@container site (min-width: 880px) {
+  .cols { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .keys { display: block; }
+}
+@container site (min-width: 1000px) {
+  .notice a { display: inline; }
+}
+@container site (max-width: 879.98px) {
+  .col-detail .notice { display: none; }
+}
+@container site (max-width: 640px) {
+  .cats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cat-name { font-size: 14px; }
+  .cat { padding: 0 12px; }
+  .lead { font-size: 20px; }
+  .search { grid-template-columns: 46px minmax(0, 1fr) 70px; height: 58px; }
+  .search input { height: 58px; font-size: 18px; }
+  .search-side { padding-right: 10px; }
+  .row { padding: 0 14px; grid-template-columns: minmax(0, 1fr) 68px; gap: 12px; }
+  .skel { padding: 0 14px; grid-template-columns: minmax(0, 1fr) 68px; }
+  .detail { padding: 18px 16px 16px; }
+  .head-link { display: none; }
+  .site-name small { display: none; }
+  .desks div { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+  .page h1 { font-size: 22px; }
+  main { padding: 28px 0 40px; }
+}
+@media (max-width: 640px) {
+  :root { --gutter: 16px; --row-h: 96px; }
+}
+
+/* ---- デモ用パネル（製品の画面の外） ---------------------------------- */
+
+.dock {
+  position: fixed; z-index: 50; top: 0; right: 0; bottom: 0; width: var(--dock-w);
+  display: flex; flex-direction: column;
+  background: var(--canvas); color: var(--ink);
+  border-left: 1px dashed var(--line-strong);
+  font-size: 14px; line-height: 1.6;
+}
+.dock-head { flex: none; padding: 14px 16px 12px; border-bottom: 1px dashed var(--line-strong); }
+.dock-title { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.dock-title h2 { font-family: var(--mono); font-size: 14px; font-weight: 700; letter-spacing: .04em; }
+.dock-sub { margin-top: 2px; font-size: 13px; color: var(--ink-2); }
+.dock-btns { display: flex; gap: 6px; }
+.dbtn {
+  height: 32px; padding: 0 10px; border: 0; border-radius: var(--radius-control);
+  background: var(--surface); box-shadow: var(--shadow-field); font-size: 13px; white-space: nowrap;
+}
+.dbtn:hover { background: var(--hover-2); }
+.dbtn[aria-pressed="true"] { background: var(--accent); color: var(--on-accent); box-shadow: none; font-weight: 600; }
+.dock-body { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 4px 16px 24px; }
+.dock h3 { margin: 18px 0 8px; font-family: var(--mono); font-size: 13px; font-weight: 700; color: var(--ink-2); letter-spacing: .04em; }
+.samples { list-style: none; display: grid; gap: 6px; }
+.sample {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 8px;
+  width: 100%; min-height: 40px; padding: 7px 12px; border: 0; border-radius: var(--radius-control);
+  background: var(--surface); box-shadow: 0 0 0 1px var(--line); text-align: left; font-size: 14px; line-height: 1.5;
+}
+.sample:hover { background: var(--hover-2); }
+.sample small { font-size: 12px; color: var(--ink-3); white-space: nowrap; }
+.sample[data-on="true"] { box-shadow: 0 0 0 1.5px var(--accent); }
+.steps { list-style: none; border-radius: var(--radius-control); background: var(--surface); box-shadow: 0 0 0 1px var(--line); }
+.steps li { display: grid; grid-template-columns: 9.5em minmax(0, 1fr); gap: 8px; padding: 9px 12px; align-items: baseline; }
+.steps li + li { box-shadow: inset 0 1px 0 var(--line); }
+.steps b { font-weight: 600; }
+.steps span { font-family: var(--mono); font-size: 13px; font-variant-numeric: tabular-nums; color: var(--ink-2); overflow-wrap: anywhere; }
+.steps li[data-st="run"] span { color: var(--accent-ink); }
+.steps li[data-st="done"] span { color: var(--ink); }
+.dock-note { margin-top: 8px; font-size: 13px; color: var(--ink-2); }
+.dock details { margin-top: 8px; border-radius: var(--radius-control); background: var(--surface); box-shadow: 0 0 0 1px var(--line); }
+.dock summary { padding: 9px 12px; cursor: pointer; font-weight: 600; border-radius: var(--radius-control); }
+.dock pre {
+  margin: 0; padding: 10px 12px; max-height: 260px; overflow: auto; border-top: 1px solid var(--line);
+  font-family: var(--mono); font-size: 12px; line-height: 1.55; white-space: pre-wrap; overflow-wrap: anywhere; color: var(--ink);
+  background: var(--inset);
+}
+.dock pre + pre { border-radius: 0 0 var(--radius-control) var(--radius-control); }
+.pre-label { padding: 6px 12px; font-size: 12px; color: var(--ink-2); border-top: 1px solid var(--line); }
+.ctrl { display: grid; grid-template-columns: 8.5em minmax(0, 1fr); align-items: center; gap: 8px; min-height: 40px; }
+.ctrl > span { color: var(--ink-2); }
+.ctrl-row { display: flex; gap: 6px; align-items: center; }
+.ctrl input[type="range"] { flex: 1; min-width: 0; accent-color: var(--accent); }
+.ctrl output { font-family: var(--mono); font-variant-numeric: tabular-nums; width: 3.2em; text-align: right; }
+.dock-tab { display: none; }
+
+html[data-dock="mini"] .dock { width: var(--dock-mini); }
+html[data-dock="mini"] .dock-head, html[data-dock="mini"] .dock-body { display: none; }
+html[data-dock="mini"] .dock-tab {
+  display: grid; place-items: center; width: 100%; height: 100%; border: 0; background: transparent;
+  font-family: var(--mono); font-size: 13px; letter-spacing: .1em; color: var(--ink-2); writing-mode: vertical-rl;
+}
+html[data-dock="mini"] .dock-tab:hover { color: var(--ink); background: var(--hover); }
+html[data-dock="mini"] .dock-tab:focus-visible { outline-offset: -3px; }
+html[data-dock="off"] .dock { display: none; }
+
+@media (min-width: 1180px) {
+  html[data-dock="open"] .site { margin-right: var(--dock-w); }
+  html[data-dock="mini"] .site { margin-right: var(--dock-mini); }
+}
+@media (max-width: 1179.98px) {
+  .dock { top: auto; left: 0; width: auto; height: min(74vh, 640px); border-left: 0; border-top: 1px dashed var(--line-strong); box-shadow: 0 -8px 28px oklch(0% 0 0 / .18); }
+  html[data-dock="mini"] .dock { width: auto; height: var(--dock-mini); box-shadow: none; }
+  html[data-dock="mini"] .dock-tab { writing-mode: horizontal-tb; }
+  html[data-dock="open"] .site, html[data-dock="mini"] .site { padding-bottom: var(--dock-mini); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  .search-busy::before { width: 100%; }
+}
+</style>
+</head>
+<body>
+
+<div class="site" id="site">
+  <header class="site-head">
+    <div class="wrap">
+      <a class="site-name" href="#/">みなと市 くらしの手続き <small>よくある質問</small></a>
+      <span class="head-space"></span>
+      <a class="head-link" href="#/contact">お問い合わせ</a>
+      <div class="seg" role="group" aria-label="画面の明るさ">
+        <button type="button" data-theme-set="light" aria-pressed="false">ライト</button>
+        <button type="button" data-theme-set="dark" aria-pressed="false">ダーク</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="wrap" id="view-search">
+      <h1 class="lead"><label for="q">知りたいことを、ふだんの言葉で入力してください</label></h1>
+      <p class="lead-sub">入力に合わせて、当てはまりそうな Q&amp;A を 3 件まで表示します。</p>
+
+      <div class="search" id="search" data-busy="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg>
+        <input id="q" type="text" inputmode="search" enterkeyhint="search" autocomplete="off" autocapitalize="off" spellcheck="false"
+               placeholder="例：引っ越してきたんだけど、何をすればいい？" aria-controls="list" aria-describedby="live">
+        <div class="search-side">
+          <span class="kbd" id="slash" aria-hidden="true">/</span>
+          <button type="button" class="clear-btn" id="clear" hidden>消す</button>
+        </div>
+        <div class="search-busy" aria-hidden="true"></div>
+      </div>
+      <p class="sr-only" id="live" role="status" aria-live="polite"></p>
+
+      <div class="block-head">
+        <h2 class="block-title" id="cats-title">分野からさがす</h2>
+        <button type="button" class="text-btn" id="cat-clear" data-off="true">分野の絞り込みをやめる</button>
+      </div>
+      <ul class="cats" id="cats" aria-labelledby="cats-title"></ul>
+
+      <div class="cols">
+        <div class="col col-list">
+          <div class="block-head">
+            <h2 class="block-title" id="list-title">よく見られている Q&amp;A</h2>
+            <span class="block-side" id="list-side">見られた回数</span>
+          </div>
+          <p class="notice" id="notice" data-on="false"></p>
+          <ul class="list" id="list" data-mode="popular" aria-labelledby="list-title"></ul>
+          <p class="keys" aria-hidden="true"><span class="kbd">/</span>入力欄へ移る<span class="kbd">↑</span><span class="kbd" style="margin-left:2px">↓</span>候補を選ぶ<span class="kbd">Enter</span>答えを読む<span class="kbd">Esc</span>入力を消す</p>
+        </div>
+        <div class="col col-detail">
+          <div class="block-head">
+            <h2 class="block-title">答え</h2>
+          </div>
+          <p class="notice" aria-hidden="true">&nbsp;</p>
+          <article class="detail" id="detail" aria-live="polite"></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap" id="view-page" hidden><div class="page" id="page"></div></section>
+
+    <section class="wrap" id="view-contact" hidden>
+      <div class="page prose">
+        <p class="crumbs"><a href="#/">よくある質問</a><span>›</span><span>お問い合わせ</span></p>
+        <h1>お問い合わせ</h1>
+        <p class="page-answer">Q&amp;A で解決しないときは、担当の窓口へ直接おたずねいただくか、下のフォームからお送りください。フォームには 3 開庁日以内にメールで返信します。</p>
+        <h2>分野ごとの窓口</h2>
+        <dl class="desks" id="desks"></dl>
+        <h2>フォームで問い合わせる</h2>
+        <form class="form" id="form" novalidate>
+          <label>分野
+            <select id="f-cat"></select>
+          </label>
+          <label>お問い合わせの内容
+            <textarea id="f-body" required></textarea>
+          </label>
+          <label>返信先のメールアドレス <span>返信のためだけに使います。</span>
+            <input id="f-mail" type="email" autocomplete="email" inputmode="email" required>
+          </label>
+          <button type="submit" class="primary">この内容で送る</button>
+          <p class="form-msg" id="f-msg" role="status" aria-live="polite"></p>
+        </form>
+        <a class="back" href="#/">よくある質問の検索に戻る</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap">
+      <span>みなと市役所　開庁時間：平日 8時30分〜17時15分（祝日・年末年始を除く）</span>
+      <a href="#/contact">お問い合わせ</a>
+    </div>
+  </footer>
+</div>
+
+<aside class="dock" id="dock" aria-label="デモ用パネル">
+  <button type="button" class="dock-tab" id="dock-open">デモ用パネルを開く</button>
+  <div class="dock-head">
+    <div class="dock-title">
+      <h2>デモ用パネル</h2>
+      <div class="dock-btns">
+        <button type="button" class="dbtn" id="dock-mini">たたむ</button>
+        <button type="button" class="dbtn" id="dock-off">完全に隠す</button>
+      </div>
+    </div>
+    <p class="dock-sub">製品の画面には含まれません。隠したあとは Shift + D か再読み込みで戻せます。</p>
+  </div>
+  <div class="dock-body">
+    <h3>サンプルの質問</h3>
+    <ul class="samples" id="samples"></ul>
+    <p class="dock-note">押すと、検索欄に 1 文字ずつ入力します。</p>
+
+    <h3>いま何が起きているか</h3>
+    <ol class="steps" id="steps">
+      <li id="st1" data-st="idle"><b>1　分野を選ぶ</b><span>待機中</span></li>
+      <li id="st2" data-st="idle"><b>2　記事を選ぶ</b><span>待機中</span></li>
+      <li id="st3" data-st="idle"><b>応答時間</b><span>—</span></li>
+      <li id="st4" data-st="idle"><b>費用の目安</b><span>—</span></li>
+    </ol>
+    <p class="dock-note">下の送受信の内容はシミュレーションです。実際の分類モデルは呼び出しておらず、このファイルの中の採点処理が確率を作っています。費用は 1 回あたり入力 約 34,000 トークンとして試算した目安です。</p>
+    <details id="d1">
+      <summary>1 回目の問い合わせ（分野）</summary>
+      <div class="pre-label">送る内容（state と choices）</div>
+      <pre id="req1">まだ検索していません。</pre>
+      <div class="pre-label">返ってくる内容（選択肢ごとの確率）</div>
+      <pre id="res1">—</pre>
+    </details>
+    <details id="d2">
+      <summary>2 回目の問い合わせ（記事）</summary>
+      <div class="pre-label">送る内容（state と choices）</div>
+      <pre id="req2">まだ検索していません。</pre>
+      <div class="pre-label">返ってくる内容（選択肢ごとの確率）</div>
+      <pre id="res2">—</pre>
+    </details>
+
+    <h3>調整</h3>
+    <div class="ctrl">
+      <span>応答の速さ</span>
+      <div class="ctrl-row" id="delay" role="group" aria-label="応答の速さ">
+        <button type="button" class="dbtn" data-delay="fast" aria-pressed="false">速い</button>
+        <button type="button" class="dbtn" data-delay="normal" aria-pressed="true">ふつう</button>
+        <button type="button" class="dbtn" data-delay="slow" aria-pressed="false">遅い</button>
+      </div>
+    </div>
+    <div class="ctrl">
+      <span id="th-label">「該当なし」のしきい値</span>
+      <div class="ctrl-row">
+        <input type="range" id="th" min="10" max="60" step="5" value="30" aria-labelledby="th-label">
+        <output id="th-out" class="tnum">30%</output>
+      </div>
+    </div>
+    <p class="dock-note">「該当なし」がこの値以上になると、候補の上に案内の 1 行を出します。</p>
+    <div class="ctrl">
+      <span>はじめに戻す</span>
+      <div class="ctrl-row"><button type="button" class="dbtn" id="reset">入力と調整をリセットする</button></div>
+    </div>
+  </div>
+</aside>
+
+<script>
+/* == データと判定 == */
+
+var SITE = "みなと市 くらしの手続き";
+
+var CATS = [
+  { id: "juusho",   name: "引っ越し・住所", k: "引っ越し 住所" },
+  { id: "koseki",   name: "戸籍・証明書",   k: "戸籍 証明書" },
+  { id: "zei",      name: "税金",           k: "税" },
+  { id: "kosodate", name: "子育て",         k: "子ども 子育て 育児" },
+  { id: "hoken",    name: "保険・年金",     k: "国保 年金 保険" },
+  { id: "gomi",     name: "ごみ・資源",     k: "ごみ リサイクル" },
+  { id: "shisetsu", name: "施設の予約",     k: "施設 予約" },
+  { id: "mynumber", name: "マイナンバー",   k: "マイナンバー" }
+];
+
+var DESKS = {
+  shimin:   "市民課（本庁舎 1 階 1〜4 番窓口）。平日 8時30分〜17時15分、木曜は 19時まで。第 2・第 4 土曜は 9時〜12時も開いています。",
+  zei:      "税務課（本庁舎 2 階 21〜24 番窓口）。平日 8時30分〜17時15分。",
+  nozei:    "納税課（本庁舎 2 階 25 番窓口）。平日 8時30分〜17時15分、月末の平日は 19時まで。",
+  kodomo:   "こども家庭課（本庁舎 3 階 31 番窓口）。平日 8時30分〜17時15分。",
+  hoiku:    "保育課（本庁舎 3 階 33 番窓口）。平日 8時30分〜17時15分。",
+  gakumu:   "学務課（第二庁舎 3 階）。平日 8時30分〜17時15分。",
+  kenko:    "健康づくり課（保健センター 1 階）。平日 8時30分〜17時15分。",
+  hoken:    "保険年金課（本庁舎 1 階 7〜9 番窓口）。平日 8時30分〜17時15分、木曜は 19時まで。",
+  kankyo:   "環境課（第二庁舎 1 階）。平日 8時30分〜17時15分。粗大ごみ受付センターは月〜土曜の 9時〜17時。",
+  shisetsu: "各施設の窓口（9時〜21時、休館日を除く）。施設予約システムは 24 時間使えます（毎月末日の 0時〜6時は点検のため停止）。"
+};
+var CAT_DESK = { juusho: "shimin", koseki: "shimin", zei: "zei", kosodate: "kodomo", hoken: "hoken", gomi: "kankyo", shisetsu: "shisetsu", mynumber: "shimin" };
+var SHISHO = "北部支所・南部支所（平日 8時30分〜17時）でも手続きできます。";
+
+var ALIAS = {
+  "引っ越し": ["引っ越し", "引っ越","引越", "ひっこし", "ひっこす", "転居", "越して", "住所が変わ", "住所変更", "住所を変", "新居"],
+  "転入": ["転入", "引っ越してき", "引越してき", "越してき", "ひっこしてき", "市外から", "他の市から", "県外から", "移ってき"],
+  "転出": ["転出", "市外へ", "市外に", "他の市へ", "他の市に", "県外へ", "県外に", "出ていく", "引っ越す予定", "引っ越します", "引っ越すとき"],
+  "市内": ["市内で", "市内の", "同じ市", "近所に"],
+  "なくした": ["なくし", "無くし", "失くし", "紛失", "落とし", "見つからな", "見当たらな", "どこかにいっ", "盗まれ", "盗難"],
+  "再発行": ["再発行", "再交付", "もう一度", "作り直"],
+  "オンライン": ["オンライン", "ネットで", "スマホで", "電子申請", "行かずに", "来庁せず", "家から"],
+  "代理": ["代理", "代わりに", "かわりに", "家族が", "本人以外", "委任"],
+  "遅れた": ["過ぎ", "遅れ", "間に合わな", "忘れて", "期限"],
+  "海外": ["海外", "国外", "外国", "帰国", "留学", "赴任"],
+  "世帯": ["世帯"],
+  "住民票": ["住民票"],
+  "コンビニ": ["コンビニ"],
+  "戸籍": ["戸籍", "謄本", "抄本"],
+  "印鑑": ["印鑑", "実印", "はんこ"],
+  "証明書": ["証明"],
+  "結婚": ["結婚", "婚姻", "入籍"],
+  "出産": ["出産", "生まれ", "産まれ", "出生", "赤ちゃん", "子どもができ"],
+  "死亡": ["亡くな", "死亡", "死去", "他界"],
+  "申告": ["申告"],
+  "所得証明": ["所得証明", "課税証明", "非課税証明", "収入の証明", "年収の証明", "所得の証明"],
+  "納付": ["納め", "納付", "払い", "払う", "払え", "支払"],
+  "払えない": ["払えな", "納められな", "払うのが難し", "払うのがきつ", "支払いが難", "苦し", "分割", "待ってほし", "滞納"],
+  "納付書": ["納付書", "振込用紙", "払込用紙", "払込票"],
+  "バイク": ["バイク", "原付", "スクーター", "軽自動車"],
+  "廃車": ["廃車", "手放", "譲", "売っ", "名義"],
+  "固定資産": ["固定資産", "家屋", "土地"],
+  "口座振替": ["口座振替", "引き落とし", "口座引落", "自動で払"],
+  "税": ["税"],
+  "児童手当": ["児童手当", "子ども手当", "こども手当"],
+  "保育園": ["保育園", "保育所", "こども園", "入園", "保活", "預けたい"],
+  "医療費": ["医療費", "病院代", "治療費"],
+  "医療証": ["医療証", "子どもの医療", "こどもの医療", "乳幼児医療"],
+  "妊娠": ["妊娠", "母子手帳", "母子健康手帳", "妊婦"],
+  "転校": ["転校", "転入学", "学校"],
+  "学童": ["学童", "放課後"],
+  "予防接種": ["予防接種", "ワクチン", "注射", "接種"],
+  "一時預かり": ["一時預", "一時保育", "少しだけ預", "数時間預", "一日だけ預"],
+  "子ども": ["子ども", "こども", "子供", "息子", "娘"],
+  "退職": ["辞め", "退職", "離職", "失業", "無職", "会社をやめ", "仕事をやめ"],
+  "就職": ["就職", "入社", "転職", "社会保険に入", "社保に入", "会社の健康保険", "会社の保険"],
+  "国保": ["国保", "国民健康保険", "健康保険", "保険証", "資格確認書"],
+  "保険": ["保険"],
+  "高額": ["高額", "入院", "手術", "限度額"],
+  "年金": ["年金"],
+  "免除": ["免除", "猶予", "減免", "軽減", "安くな"],
+  "75歳": ["75歳", "後期高齢"],
+  "粗大ごみ": ["粗大", "大きなごみ", "大きいごみ", "大型ごみ", "ソファ", "タンス", "たんす", "ベッド", "家具", "布団", "自転車", "机", "椅子", "いす", "マットレス"],
+  "ごみ": ["ごみ", "捨て", "処分", "廃棄"],
+  "リサイクル": ["リサイクル", "資源"],
+  "収集日": ["収集日", "何曜日", "いつ出", "回収日", "曜日"],
+  "分別": ["分別", "分け方", "何ごみ", "燃える", "燃やせ", "燃えない", "プラスチック", "ペットボトル", "びん"],
+  "家電": ["テレビ", "冷蔵庫", "洗濯機", "エアコン", "乾燥機", "冷凍庫"],
+  "パソコン": ["パソコン", "小型家電", "携帯電話", "スマートフォン", "プリンター", "ノートpc"],
+  "ごみ袋": ["ごみ袋", "指定袋", "袋"],
+  "電池": ["電池", "スプレー", "ライター", "バッテリー", "ガス缶", "カセットボンベ"],
+  "大量": ["大量", "たくさん", "多量", "一度に", "いっぱい"],
+  "施設": ["施設"],
+  "予約": ["予約", "借り", "使いたい", "利用したい", "空き"],
+  "登録": ["登録"],
+  "体育館": ["体育館", "テニス", "グラウンド", "運動場", "フットサル", "バスケ", "バドミントン", "卓球", "スポーツ"],
+  "会議室": ["会議室", "集会室", "公民館", "和室", "ホール", "部屋"],
+  "キャンセル": ["キャンセル", "取り消", "取消", "やめたい", "変更"],
+  "抽選": ["抽選", "申し込み期間", "先着"],
+  "料金": ["料金", "使用料", "いくら", "値段", "費用", "手数料"],
+  "マイナンバー": ["マイナンバー", "マイナ", "個人番号"],
+  "カード": ["カード"],
+  "作る": ["作りた", "作る", "作れ", "発行"],
+  "受け取り": ["受け取", "受取", "取りに", "交付通知", "はがきが届"],
+  "暗証番号": ["暗証番号", "パスワード", "ロック", "間違え"],
+  "更新": ["更新", "有効期限", "期限が切れ", "切れそう", "切れた"],
+  "お金": ["お金", "もらえる", "手当", "給付", "助成"]
+};
+
+var ARTICLES = [
+  /* 引っ越し・住所 */
+  { id: "tennyu", c: "juusho", v: 18420, k: "+転入 +引っ越し 住所 何をすれば",
+    q: "他の市区町村から引っ越してきたときの手続きは？",
+    a: "引っ越した日から 14 日以内に、市民課へ転入届を出してください。前の市区町村でもらった転出証明書が必要です。",
+    need: ["転出証明書（マイナンバーカードで転出届を出した場合は不要）", "窓口に来る人の本人確認書類（運転免許証など）", "マイナンバーカード（世帯の全員分。お持ちの場合）", "在留カード（外国籍の方）"],
+    flow: ["前に住んでいた市区町村で転出届を出す", "引っ越し後 14 日以内に市民課で転入届を出す", "同じ窓口でマイナンバーカードの住所を書き換える", "該当する方は、国民健康保険・児童手当・学校の手続きを続けて行う"],
+    desk: "shimin", shisho: true,
+    note: ["引っ越す前には届け出できません。", "国民健康保険や児童手当は転入届と同じ日に手続きできます。所要時間はあわせて 40 分ほどです。"] },
+  { id: "tenshutsu", c: "juusho", v: 9640, k: "+転出 +引っ越し 住所",
+    q: "市外へ引っ越すときの手続きは？",
+    a: "引っ越す日のおよそ 14 日前から、市民課で転出届を出せます。届け出ると転出証明書をお渡しします。",
+    need: ["窓口に来る人の本人確認書類", "マイナンバーカード（お持ちの場合）", "国民健康保険の資格確認書（加入している方）", "印鑑登録証（登録している方。転出日に登録は消えます）"],
+    flow: ["市民課で転出届を出す", "転出証明書を受け取る", "新しい住所の市区町村で、引っ越し後 14 日以内に転入届を出す"],
+    desk: "shimin", shisho: true,
+    note: ["マイナンバーカードをお持ちの方は、オンラインでも転出届を出せます。", "引っ越したあとに気づいた場合は、郵送でも受け付けます。"] },
+  { id: "tenkyo", c: "juusho", v: 7310, k: "+市内 +引っ越し 住所",
+    q: "市内で引っ越したときの手続きは？",
+    a: "引っ越した日から 14 日以内に、市民課へ転居届を出してください。",
+    need: ["窓口に来る人の本人確認書類", "マイナンバーカード（世帯の全員分。お持ちの場合）", "国民健康保険の資格確認書（加入している方）"],
+    flow: ["引っ越しを終える", "14 日以内に市民課で転居届を出す", "マイナンバーカードや資格確認書の住所を書き換える"],
+    desk: "shimin", shisho: true,
+    note: ["小・中学校の学区が変わる場合は、同じ日に学務課で転校の案内を受けてください。"] },
+  { id: "online-tenshutsu", c: "juusho", v: 6120, k: "+オンライン +転出 引っ越し マイナンバー",
+    q: "転出届はオンラインで出せますか？",
+    a: "マイナンバーカードをお持ちなら、国のオンライン窓口から転出届を出せます。市役所へ来る必要はありません。",
+    need: ["署名用電子証明書が有効なマイナンバーカード", "カードの読み取りに対応したスマートフォン、またはパソコンと IC カードリーダー", "署名用の暗証番号（6〜16 桁）と利用者証明用の暗証番号（4 桁）"],
+    flow: ["オンライン窓口で「引越しの手続き」を選ぶ", "新しい住所と引っ越し予定日を入力して送信する", "処理完了の通知を待つ（通常 2 開庁日以内）", "引っ越し後 14 日以内に、新しい市区町村の窓口で転入届を出す"],
+    desk: "shimin",
+    note: ["転入届と市内での転居届は、オンラインだけでは完了しません。窓口に来る日の予約までができます。", "転出証明書は発行されません。転入先にはマイナンバーカードをお持ちください。"] },
+  { id: "dairi", c: "juusho", v: 4480, k: "+代理 +引っ越し 転入 転出 届出",
+    q: "引っ越しの届出を代理人に頼めますか？",
+    a: "頼めます。同じ世帯の方以外が届け出る場合は、本人が書いた委任状が必要です。",
+    need: ["委任状（本人が全文を自筆で記入したもの）", "代理人の本人確認書類", "転入届の場合は転出証明書"],
+    flow: ["本人が委任状を書く", "代理人が必要なものを持って市民課へ行く", "届出書に記入して提出する"],
+    desk: "shimin", shisho: true,
+    note: ["同じ世帯の方が届け出るときは委任状は要りません。", "マイナンバーカードの住所の書き換えは、暗証番号の入力が必要なため別の手続きになります。"] },
+  { id: "kigen", c: "juusho", v: 3950, k: "+遅れた +引っ越し 転入 14日",
+    q: "引っ越しの届出が 14 日を過ぎてしまったら？",
+    a: "期限を過ぎていても届出は受け付けます。気づいた時点で、なるべく早く市民課へお越しください。",
+    need: ["通常の転入届・転居届と同じもの", "遅れた理由を記入する書類（窓口でお渡しします）"],
+    flow: ["市民課で届出書と、遅れた理由の書類に記入する", "通常どおり住所の異動を受け付ける"],
+    desk: "shimin",
+    note: ["正当な理由なく長期間届け出なかった場合、簡易裁判所から 5 万円以下の過料を科されることがあります。", "転入届が遅れると、マイナンバーカードが失効することがあります。"] },
+  { id: "kaigai", c: "juusho", v: 3260, k: "+海外 引っ越し 転出 転入",
+    q: "海外へ引っ越すとき・帰国したときの手続きは？",
+    a: "1 年以上海外で暮らす予定なら、出国前に国外への転出届を出してください。帰国したら 14 日以内に転入届が必要です。",
+    need: ["出国するとき：本人確認書類、マイナンバーカード", "帰国したとき：帰国日のわかるパスポート", "帰国したとき：戸籍全部事項証明書と戸籍の附票（本籍が市外の方）"],
+    flow: ["出国予定日の 14 日前から、市民課で転出届を出す", "帰国後 14 日以内に、パスポートを持って転入届を出す"],
+    desk: "shimin",
+    note: ["自動化ゲートを使って入国スタンプがない場合は、航空券の半券など帰国日のわかるものをお持ちください。", "国民健康保険と国民年金は、出国と同時に資格が変わります。"] },
+  { id: "setainushi", c: "juusho", v: 2870, k: "+世帯 世帯主 世帯分離 変更",
+    q: "世帯主を変えたい・世帯を分けたいときは？",
+    a: "変更があった日から 14 日以内に、市民課へ世帯変更届を出してください。",
+    need: ["窓口に来る人の本人確認書類", "国民健康保険の資格確認書（加入している方）"],
+    flow: ["市民課で世帯変更届に記入する", "新しい世帯の内容を確認して提出する"],
+    desk: "shimin", shisho: true,
+    note: ["世帯を分けられるのは、生計が別になっている場合です。", "世帯が変わると、国民健康保険料や介護保険料の計算が変わることがあります。"] },
+
+  /* 戸籍・証明書 */
+  { id: "juminhyo", c: "koseki", v: 16870, k: "+住民票 証明書 コンビニ 料金",
+    q: "住民票の写しを取りたいときは？",
+    a: "市民課・各支所の窓口か、コンビニの端末で取れます。窓口は 1 通 300 円、コンビニは 250 円です。",
+    need: ["窓口に来る人の本人確認書類", "手数料（1 通 300 円）", "代理人の場合は委任状"],
+    flow: ["窓口で請求書に記入する", "本人確認のあと、5〜10 分ほどでお渡しします"],
+    desk: "shimin", shisho: true,
+    note: ["マイナンバーや本籍を載せたい場合は、請求のときにお申し出ください。", "郵送でも請求できます。届くまで 1 週間ほどかかります。"] },
+  { id: "konbini", c: "koseki", v: 15210, k: "+コンビニ 住民票 印鑑 証明書 マイナンバー カード 所得証明",
+    q: "証明書はコンビニで取れますか？",
+    a: "マイナンバーカードがあれば、全国のコンビニの端末で住民票の写しなどを取れます。毎日 6時30分〜23時に使えます。",
+    need: ["利用者証明用電子証明書が有効なマイナンバーカード", "4 桁の暗証番号", "手数料（住民票の写し・印鑑登録証明書 250 円、戸籍の証明 400 円）"],
+    flow: ["コンビニの端末で「行政サービス」を選ぶ", "マイナンバーカードを置き、暗証番号を入力する", "証明書の種類と通数を選び、手数料を支払って印刷する"],
+    desk: "shimin",
+    note: ["取れるのは、住民票の写し・印鑑登録証明書・所得（課税）証明書・戸籍の証明（本籍が市内の方）です。", "暗証番号を 3 回続けて間違えるとロックされます。"] },
+  { id: "koseki-tohon", c: "koseki", v: 8930, k: "+戸籍 証明書 本籍",
+    q: "戸籍謄本（全部事項証明書）を取りたいときは？",
+    a: "本人・配偶者・父母や子などの直系の方が、市民課で請求できます。1 通 450 円です。",
+    need: ["窓口に来る人の本人確認書類（顔写真つきのもの）", "手数料（1 通 450 円）", "代理人の場合は委任状"],
+    flow: ["市民課で請求書に本籍と筆頭者を記入する", "本人確認のあと、10 分ほどでお渡しします"],
+    desk: "shimin", shisho: true,
+    note: ["本籍が他の市区町村にある場合も、本人が窓口に来れば請求できます（お渡しまで 30 分〜1 時間ほど）。", "古い戸籍（除籍・改製原戸籍）は 1 通 750 円です。"] },
+  { id: "inkan-toroku", c: "koseki", v: 7740, k: "+印鑑 +登録",
+    q: "印鑑登録をしたいときは？",
+    a: "登録する印鑑と顔写真つきの本人確認書類を持って、本人が市民課へお越しください。その日のうちに登録できます。",
+    need: ["登録する印鑑", "顔写真つきの本人確認書類（運転免許証・マイナンバーカードなど）", "手数料 300 円"],
+    flow: ["市民課で申請書に記入する", "本人確認のあと、印鑑登録証（カード）を受け取る"],
+    desk: "shimin", shisho: true,
+    note: ["顔写真つきの書類がない場合は、照会書を郵送してご本人を確認するため、登録まで数日かかります。", "ゴム印や、大きさが 8mm 未満・25mm を超える印鑑は登録できません。"] },
+  { id: "inkan-shomei", c: "koseki", v: 9980, k: "+印鑑 +証明書 コンビニ 代理",
+    q: "印鑑登録証明書を取りたいときは？",
+    a: "印鑑登録証（カード）を窓口にお持ちください。1 通 300 円です。カードがないと発行できません。",
+    need: ["印鑑登録証（カード）", "手数料（1 通 300 円）"],
+    flow: ["窓口で請求書に記入し、印鑑登録証を出す", "5 分ほどでお渡しします"],
+    desk: "shimin", shisho: true,
+    note: ["代理人でも、印鑑登録証を持参すれば委任状なしで取れます。", "マイナンバーカードがあれば、コンビニでも取れます。", "登録した印鑑そのものは要りません。"] },
+  { id: "konin", c: "koseki", v: 8350, k: "+結婚 届 必要なもの",
+    q: "婚姻届を出すときに必要なものは？",
+    a: "婚姻届（成人の証人 2 名の署名があるもの）と、届け出る方の本人確認書類が必要です。戸籍謄本は原則として要りません。",
+    need: ["婚姻届（証人 2 名の署名があるもの）", "届け出る方の本人確認書類"],
+    flow: ["婚姻届に 2 人と証人が記入する", "市民課へ提出する（夜間・休日は本庁舎の夜間受付で預かります）", "内容に問題がなければ、提出した日が婚姻の日になります"],
+    desk: "shimin",
+    note: ["夜間・休日に預かった届は、次の開庁日に内容を確認します。不備があれば電話でご連絡します。", "姓や住所が変わる方は、マイナンバーカードや国民健康保険の手続きも必要です。"] },
+  { id: "shussei", c: "koseki", v: 7020, k: "+出産 届 子ども 14日",
+    q: "出生届はいつまでに、どこへ出しますか？",
+    a: "生まれた日を含めて 14 日以内に、市民課へ出してください。医師や助産師が記入した出生証明書が必要です。",
+    need: ["出生届（右半分が出生証明書になっています）", "母子健康手帳", "届け出る方の本人確認書類"],
+    flow: ["病院で出生証明書を受け取る", "出生届に記入して市民課へ出す", "続けて、児童手当とこども医療証の申請をする"],
+    desk: "shimin",
+    note: ["14 日目が閉庁日の場合は、次の開庁日が期限です。", "児童手当は、生まれた日の翌日から 15 日以内に申請してください。"] },
+  { id: "shibo", c: "koseki", v: 5460, k: "+死亡 届 家族 火葬",
+    q: "家族が亡くなったときの届出は？",
+    a: "亡くなったことを知った日から 7 日以内に、死亡届を市民課へ出してください。届け出ると火葬許可証をお渡しします。",
+    need: ["死亡届（右半分が死亡診断書になっています）", "届け出る方の本人確認書類"],
+    flow: ["医師から死亡診断書を受け取る", "死亡届に記入して市民課へ出す（夜間・休日も預かります）", "火葬許可証を受け取る", "後日、保険・年金・税などの手続きをする"],
+    desk: "shimin",
+    note: ["葬祭事業者が代わりに届け出ることもできます。", "亡くなったあとの手続きをまとめて案内する「おくやみ窓口」は予約制です。"] },
+
+  /* 税金 */
+  { id: "shinkoku", c: "zei", v: 9120, k: "+申告 +税 市民税 県民税 住民税 収入",
+    q: "市民税・県民税の申告は必要ですか？",
+    a: "1 月 1 日に市内に住んでいて、確定申告も年末調整もしていない方は申告が必要です。受付は 2 月 16 日から 3 月 15 日です。",
+    need: ["前の年の収入がわかるもの（源泉徴収票、帳簿など）", "控除の証明書（生命保険料、医療費の領収書など）", "本人確認書類とマイナンバーのわかるもの"],
+    flow: ["申告書に収入と控除を記入する", "税務課の窓口・郵送・電子申告のいずれかで出す", "6 月に税額の通知が届く"],
+    desk: "zei",
+    note: ["収入がなかった方も、申告しておくと国民健康保険料の軽減や所得証明書の発行が受けられます。", "給与が 1 か所だけで年末調整が済んでいる方は、申告は要りません。"] },
+  { id: "kazei-shomei", c: "zei", v: 10460, k: "+所得証明 +証明書 税 コンビニ 収入",
+    q: "所得証明書（課税証明書）を取りたいときは？",
+    a: "税務課・市民課の窓口か、コンビニの端末で取れます。1 通 300 円（コンビニは 250 円）です。",
+    need: ["窓口に来る人の本人確認書類", "手数料（1 通 300 円）", "代理人の場合は委任状"],
+    flow: ["窓口で請求書に、必要な年度を記入する", "5〜10 分ほどでお渡しします"],
+    desk: "zei", shisho: true,
+    note: ["新しい年度の証明書は、6 月上旬から発行します。", "証明書は、その年の 1 月 1 日に住んでいた市区町村で発行します。"] },
+  { id: "nofu-hoho", c: "zei", v: 8240, k: "+納付 +税 方法 コンビニ スマホ クレジット",
+    q: "市税の納め方にはどんな方法がありますか？",
+    a: "納付書を使って金融機関・コンビニ・スマートフォンの決済アプリで納められるほか、口座振替とクレジットカードが使えます。",
+    need: ["納付書（コード読み取り用の印字があるもの）", "口座振替の場合は、通帳と届出印"],
+    flow: ["納付書が届く", "納期限までに、都合のよい方法で納める"],
+    desk: "nozei",
+    note: ["コンビニと決済アプリで納められるのは、1 枚 30 万円までの納付書です。", "決済アプリやクレジットカードで納めた場合、領収書は出ません。"] },
+  { id: "nofusho", c: "zei", v: 6680, k: "+納付書 +なくした 再発行 税",
+    q: "納付書をなくしたときは？",
+    a: "納税課で再発行します。窓口ならその場で、電話や申請フォームなら 1 週間ほどで郵送します。手数料はかかりません。",
+    need: ["本人確認書類（窓口の場合）", "税の種類と、何期分かがわかるもの（わかる範囲で）"],
+    flow: ["納税課の窓口・電話・申請フォームのいずれかで依頼する", "新しい納付書を受け取る", "納期限までに納める"],
+    desk: "nozei",
+    note: ["納期限を過ぎた分は、延滞金が加わることがあります。", "毎回の納付が手間な方は、口座振替が便利です。"] },
+  { id: "nouzei-sodan", c: "zei", v: 5870, k: "+払えない +税 納付 相談 遅れた 困って",
+    q: "税金を期限までに納められないときは？",
+    a: "納期限の前に、納税課へご相談ください。事情に応じて、分けて納める方法や納税の猶予を案内します。",
+    need: ["収入や支出のわかるもの（給与明細、通帳など）", "納付書または納税通知書", "本人確認書類"],
+    flow: ["納税課の窓口か電話で相談を予約する", "収入と支出の状況をうかがう", "分割の計画や猶予の申請を一緒に決める"],
+    desk: "nozei",
+    note: ["連絡のないまま納期限を過ぎると、督促状が届き、延滞金がかかります。", "災害・病気・失業などの事情がある場合は、猶予や減免の制度があります。"] },
+  { id: "gentsuki", c: "zei", v: 4930, k: "+バイク +廃車 税 ナンバー",
+    q: "原付バイクを廃車・譲渡したいときは？",
+    a: "125cc 以下のバイクは、ナンバープレートを持って税務課で廃車の届出をしてください。その場で廃車の証明書をお渡しします。",
+    need: ["ナンバープレート", "標識交付証明書", "届け出る方の本人確認書類"],
+    flow: ["ナンバープレートを外す", "税務課で廃車の申告書を出す", "廃車申告受付書を受け取る（譲る相手に渡します）"],
+    desk: "zei",
+    note: ["軽自動車税は、4 月 1 日時点の持ち主にかかります。3 月末までに届け出てください。", "125cc を超えるバイクと軽自動車は、国の運輸支局などでの手続きになります。"] },
+  { id: "kotei", c: "zei", v: 6010, k: "+固定資産 +税 納税通知書 いつ届",
+    q: "固定資産税の納税通知書はいつ届きますか？",
+    a: "毎年 5 月上旬に、1 月 1 日時点の持ち主へ郵送します。納期は 5 月・7 月・12 月・翌年 2 月の年 4 回です。",
+    need: ["手続きは要りません", "届かない場合の問い合わせには、土地や家屋の所在地がわかるもの"],
+    flow: ["5 月上旬に納税通知書が届く", "同封の納付書か口座振替で、各期の期限までに納める"],
+    desk: "zei",
+    note: ["年の途中で売買した場合も、その年度分は 1 月 1 日時点の持ち主にかかります。", "送り先を変えたい場合は、税務課へ届け出てください。"] },
+  { id: "koza", c: "zei", v: 5220, k: "+口座振替 +税 納付 銀行",
+    q: "市税を口座振替にしたいときは？",
+    a: "市内の金融機関の窓口か、市の申請フォームから申し込めます。振替が始まるまで 1〜2 か月かかります。",
+    need: ["通帳と届出印（金融機関の窓口で申し込む場合）", "キャッシュカード（申請フォームの場合）", "納税通知書（通知書番号を確認します）"],
+    flow: ["金融機関の窓口か申請フォームで申し込む", "開始の通知が届く", "次の納期から、納期限の日に引き落とされる"],
+    desk: "nozei",
+    note: ["残高不足で引き落とせなかった場合は、後日届く納付書で納めてください。", "税の種類ごとに申し込みが必要です。"] },
+
+  /* 子育て */
+  { id: "jido-teate", c: "kosodate", v: 12110, k: "+児童手当 +お金 出産 転入 子ども",
+    q: "児童手当を受け取るための手続きは？",
+    a: "出生や転入の翌日から 15 日以内に、こども家庭課へ申請してください。申請した月の翌月分から支給します。",
+    need: ["申請する方（生計を主に支えている保護者）の本人確認書類", "申請する方名義の口座がわかるもの", "申請する方の健康保険の加入先がわかるもの", "マイナンバーのわかるもの"],
+    flow: ["こども家庭課で認定請求書を出す", "認定の通知が届く", "偶数月の 10 日に、2 か月分が口座に振り込まれる"],
+    desk: "kodomo",
+    note: ["対象は高校生年代（18 歳になったあと最初の 3 月 31 日）までです。", "月額は 3 歳未満 15,000 円、3 歳以上 10,000 円、第 3 子以降は 30,000 円です。", "申請が遅れると、遅れた月の分は受け取れません。"] },
+  { id: "hoikuen", c: "kosodate", v: 11340, k: "+保育園 申し込 いつ 子ども 働",
+    q: "保育園の入園申し込みは、いつ・どうやって？",
+    a: "4 月入園は前の年の 10 月 1 日〜11 月 15 日に受け付けます。年度の途中は、入園したい月の前月 10 日までに保育課へ申し込んでください。",
+    need: ["入園申込書と家庭状況の届出書", "保育が必要な理由の証明（就労証明書など。父母それぞれ）", "マイナンバーのわかるものと本人確認書類"],
+    flow: ["希望する園を見学する", "書類をそろえて保育課へ出す", "利用調整の結果が郵送で届く（4 月入園は 1 月下旬）", "園で面接と健康診断を受ける"],
+    desk: "hoiku",
+    note: ["希望する園は第 6 希望まで書けます。", "空きの状況は、毎月 1 日に市のサイトで更新します。"] },
+  { id: "kodomo-iryo", c: "kosodate", v: 8760, k: "+医療証 +医療費 子ども お金 病院 出産 転入",
+    q: "子どもの医療費の助成（こども医療証）を受けるには？",
+    a: "こども家庭課で申請すると、こども医療証をお渡しします。18 歳になったあと最初の 3 月 31 日まで、保険診療の自己負担が無料になります。",
+    need: ["お子さんの健康保険の加入先がわかるもの", "保護者の本人確認書類", "マイナンバーのわかるもの"],
+    flow: ["出生や転入の日に、こども家庭課で申請する", "その場でこども医療証を受け取る", "県内の医療機関の窓口で、保険の資格確認とあわせて提示する"],
+    desk: "kodomo",
+    note: ["県外で受診したときは、いったん支払ってから払い戻しを申請してください。", "健康診断、予防接種、入院中の食事代は対象外です。"] },
+  { id: "boshi-techo", c: "kosodate", v: 6390, k: "+妊娠 届 健診",
+    q: "妊娠したら（母子健康手帳の受け取り）",
+    a: "医療機関で妊娠の診断を受けたら、保健センターへ妊娠届を出してください。その場で母子健康手帳と妊婦健診の受診票をお渡しします。",
+    need: ["妊娠届出書（医療機関でもらったもの。なくても届け出できます）", "本人確認書類", "マイナンバーのわかるもの"],
+    flow: ["保健センターで妊娠届を出す", "保健師と 20 分ほど面談する", "母子健康手帳と受診票（14 回分）を受け取る"],
+    desk: "kenko",
+    note: ["つわりなどで来られないときは、家族が代わりに届け出できます。", "妊娠中に転入してきた方は、前の市区町村の受診票を市のものに交換します。"] },
+  { id: "tenko", c: "kosodate", v: 7180, k: "+転校 引っ越し 転入 子ども 小学校 中学校",
+    q: "引っ越しに伴う小・中学校の転校手続きは？",
+    a: "転入届や転居届を出すと、その場で転入学通知書をお渡しします。前の学校でもらった書類と一緒に、新しい学校へ持っていってください。",
+    need: ["在学証明書（前の学校が発行）", "教科用図書給与証明書（前の学校が発行）", "転入学通知書（転入届のときに市民課でお渡しします）"],
+    flow: ["今の学校に引っ越しを伝え、書類を受け取る", "市民課で転入届・転居届を出し、転入学通知書を受け取る", "新しい学校に連絡して、書類を持っていく"],
+    desk: "gakumu",
+    note: ["通う学校は住所で決まります。学区は学務課で確認できます。", "学年の途中などの事情がある場合は、元の学校に通い続けられることがあります。"] },
+  { id: "gakudo", c: "kosodate", v: 5830, k: "+学童 子ども 小学生 申し込 預",
+    q: "放課後児童クラブ（学童保育）を使いたいときは？",
+    a: "保護者が仕事などで放課後に家にいない小学生が利用できます。4 月からの利用は、前の年の 11 月 1 日〜12 月 10 日に申し込んでください。",
+    need: ["利用申込書", "保育が必要な理由の証明（就労証明書など）"],
+    flow: ["各クラブかこども家庭課で申込書を受け取る", "書類をそろえて出す", "2 月中旬に結果が届く", "説明会に出る"],
+    desk: "kodomo",
+    note: ["利用料は月 5,000 円、おやつ代は月 1,500 円です。", "年度の途中は、空きがあれば利用したい月の前月 15 日まで受け付けます。"] },
+  { id: "yobo-sesshu", c: "kosodate", v: 6940, k: "+予防接種 子ども 予診票 赤ちゃん",
+    q: "子どもの予防接種の受け方は？",
+    a: "予診票は、生後 2 か月になる前に郵送します。市内の協力医療機関に予約して受けてください。定期接種は無料です。",
+    need: ["予診票", "母子健康手帳", "お子さんの健康保険の資格がわかるもの"],
+    flow: ["届いた予診票と日程表を確認する", "協力医療機関に予約する", "当日、保護者が付き添って受ける"],
+    desk: "kenko",
+    note: ["転入してきた方は、母子健康手帳を保健センターにお持ちください。残りの回数分の予診票をお渡しします。", "予診票をなくした場合は、保健センターで再発行します。"] },
+  { id: "ichiji", c: "kosodate", v: 4270, k: "+一時預かり 子ども 保育園 預 料金",
+    q: "一時預かりを使いたいときは？",
+    a: "市内 6 か所の保育園などで、生後 6 か月から小学校入学前までのお子さんを預かります。先に利用登録をして、使いたい日の 3 日前までに予約してください。",
+    need: ["利用登録の申請書", "お子さんの健康状態がわかるもの（母子健康手帳など）", "当日の着替え・昼食など（園によって違います）"],
+    flow: ["使いたい園で利用登録と面談をする", "使いたい日の 1 か月前から 3 日前までに予約する", "当日、利用料を園に支払う"],
+    desk: "hoiku",
+    note: ["利用料は 4 時間まで 1,200 円、4 時間を超えると 2,400 円です。", "理由は問いません。通院や休息のためにも使えます。"] },
+
+  /* 保険・年金 */
+  { id: "kokuho-kanyu", c: "hoken", v: 11890, k: "+国保 +退職 加入 切り替え 14日 どうなる",
+    q: "会社を辞めたときの国民健康保険の加入手続きは？",
+    a: "退職した日の翌日から 14 日以内に、保険年金課で加入の手続きをしてください。会社の健康保険をやめたことの証明書が必要です。",
+    need: ["健康保険の資格喪失証明書（勤めていた会社が発行）", "窓口に来る人の本人確認書類", "世帯主と加入する方のマイナンバーのわかるもの"],
+    flow: ["会社から資格喪失証明書を受け取る", "保険年金課で加入の届出をする", "資格確認書などを受け取る", "翌月以降に保険料の通知が届く"],
+    desk: "hoken", shisho: true,
+    note: ["届出が遅れても、保険料は退職した日の翌日の分からかかります。", "会社の健康保険を任意で続ける方法や、家族の扶養に入る方法もあります。保険料を比べて選んでください。"] },
+  { id: "kokuho-dattai", c: "hoken", v: 7450, k: "+国保 +就職 やめる 脱退 切り替え",
+    q: "就職して会社の健康保険に入ったときは？",
+    a: "国民健康保険は自動ではやめられません。新しい保険に入った日から 14 日以内に、保険年金課へ届け出てください。",
+    need: ["新しい健康保険の資格がわかるもの（資格確認書、資格情報のお知らせなど）", "国民健康保険の資格確認書（お持ちの方）", "窓口に来る人の本人確認書類"],
+    flow: ["会社の健康保険の資格がわかるものを受け取る", "保険年金課の窓口・郵送・申請フォームで届け出る", "保険料が計算し直され、納めすぎた分は戻る"],
+    desk: "hoken", shisho: true,
+    note: ["届け出ないと、国民健康保険料の請求が続きます。", "家族も会社の健康保険の扶養に入る場合は、全員分を届け出てください。"] },
+  { id: "hokensho", c: "hoken", v: 6230, k: "+国保 +なくした 再発行 保険証",
+    q: "国民健康保険の資格確認書（保険証）をなくしたときは？",
+    a: "保険年金課で再交付を申請してください。本人確認書類があれば、窓口でその日のうちにお渡しします。",
+    need: ["窓口に来る人の本人確認書類（顔写真つきのもの）", "マイナンバーのわかるもの"],
+    flow: ["外出先でなくした場合は、警察に遺失届を出す", "保険年金課で再交付の申請書を出す", "新しい資格確認書を受け取る"],
+    desk: "hoken", shisho: true,
+    note: ["顔写真つきの書類がない場合は、住所あてに郵送します（3〜5 日）。", "マイナンバーカードを保険証として登録している方は、カードでそのまま受診できます。"] },
+  { id: "kogaku", c: "hoken", v: 5940, k: "+高額 +医療費 国保 戻る お金",
+    q: "医療費が高額になったときは？（高額療養費）",
+    a: "1 か月の自己負担が限度額を超えた分は、申請すると戻ります。対象の世帯には、診療を受けた月の約 3 か月後に申請書を郵送します。",
+    need: ["届いた申請書", "世帯主名義の口座がわかるもの", "医療機関の領収書（初めて申請するとき）"],
+    flow: ["申請書が届く", "記入して保険年金課へ出す（郵送もできます）", "約 1 か月後に口座へ振り込まれる"],
+    desk: "hoken",
+    note: ["マイナンバーカードを保険証として使うと、窓口での支払いが最初から限度額までになります。", "限度額は年齢と所得によって決まります。", "診療を受けた月の翌月 1 日から 2 年を過ぎると申請できません。"] },
+  { id: "hokenryo", c: "hoken", v: 5310, k: "+払えない +国保 保険料 免除 退職 相談",
+    q: "国民健康保険料を払うのが難しいときは？",
+    a: "保険年金課へ早めにご相談ください。失業や収入の大きな減少がある場合は、保険料が軽くなる制度があります。",
+    need: ["雇用保険受給資格者証（会社の都合などで離職した方）", "収入が減ったことがわかるもの（給与明細、帳簿など）", "保険料の通知書"],
+    flow: ["保険年金課の窓口か電話で相談する", "当てはまる軽減・減免の申請書を出す", "決定の通知と、新しい保険料の通知が届く"],
+    desk: "hoken",
+    note: ["会社の都合などで離職した方は、前の年の給与所得を 100 分の 30 として保険料を計算します。", "軽減に当てはまらない場合も、分けて納める相談ができます。"] },
+  { id: "nenkin-kanyu", c: "hoken", v: 6870, k: "+年金 退職 加入 切り替え 国民年金 20歳",
+    q: "国民年金の加入・切り替えの手続きは？",
+    a: "会社を辞めて厚生年金から外れたときは、退職した日の翌日から 14 日以内に、保険年金課で国民年金への切り替えを届け出てください。",
+    need: ["基礎年金番号のわかるもの（基礎年金番号通知書、年金手帳など）", "退職した日がわかるもの（離職票、資格喪失証明書など）", "本人確認書類"],
+    flow: ["保険年金課で届出書を出す", "後日、年金事務所から納付書が届く", "納付書・口座振替・クレジットカードで納める"],
+    desk: "hoken", shisho: true,
+    note: ["扶養している配偶者がいる場合は、配偶者の切り替えも必要です。", "20 歳になった方は自動で加入となり、通知が届きます。届出は要りません。"] },
+  { id: "nenkin-menjo", c: "hoken", v: 6540, k: "+年金 +免除 払えない 学生 退職 保険料",
+    q: "国民年金保険料の免除・猶予を受けたいときは？",
+    a: "収入が少ないときや失業したときは、申請すると保険料の全額または一部が免除されます。保険年金課で申請できます。",
+    need: ["基礎年金番号のわかるもの", "失業した方は、雇用保険受給資格者証か離職票", "学生の方は、学生証の写しか在学証明書", "本人確認書類"],
+    flow: ["保険年金課で申請書を出す", "年金事務所で審査される（2〜3 か月）", "結果の通知が届く"],
+    desk: "hoken", shisho: true,
+    note: ["免除の期間は 7 月から翌年 6 月までで、毎年度申請が必要です。", "申請した時点から 2 年 1 か月前の分までさかのぼれます。", "免除された期間は、あとから 10 年以内なら納められます。"] },
+  { id: "kouki", c: "hoken", v: 4120, k: "+75歳 国保 保険 高齢 医療",
+    q: "75 歳になったときの医療保険の手続きは？",
+    a: "75 歳の誕生日から、自動的に後期高齢者医療制度に移ります。手続きは要りません。誕生月の前の月に資格確認書を郵送します。",
+    need: ["手続きは要りません", "保険料を口座振替にしたい場合は、通帳と届出印"],
+    flow: ["誕生月の前の月に資格確認書が届く", "誕生日から、新しい資格確認書を医療機関に出す", "保険料の通知が届く"],
+    desk: "hoken",
+    note: ["会社の健康保険の扶養に入っていた家族は、国民健康保険などに入る手続きが別に必要です。", "保険料は、はじめのうちは納付書で納めます。"] },
+
+  /* ごみ・資源 */
+  { id: "sodai", c: "gomi", v: 21350, k: "+粗大ごみ +ごみ 出し方 申し込 料金",
+    q: "粗大ごみの出し方は？",
+    a: "事前の申し込みが必要です。粗大ごみ受付センターに電話か申請フォームで申し込み、処理券を貼って、収集日の朝 8時30分までに出してください。",
+    need: ["粗大ごみ処理券（品目によって 400 円・800 円・1,200 円）", "受付番号（申し込みのときにお伝えします）"],
+    flow: ["粗大ごみ受付センターに申し込む（収集日・料金・出す場所が決まります）", "コンビニやスーパーで処理券を買う", "処理券に受付番号を書いて貼る", "収集日の朝 8時30分までに、決めた場所へ出す"],
+    desk: "kankyo",
+    note: ["指定袋（45 リットル）に入らず、口が結べないものが粗大ごみです。", "1 回に申し込めるのは 5 点までです。", "3 月・4 月は混み合い、収集まで 2 週間ほどかかります。"] },
+  { id: "shushubi", c: "gomi", v: 13640, k: "+収集日 +ごみ カレンダー いつ",
+    q: "ごみの収集日を知りたいときは？",
+    a: "お住まいの地区ごとの収集カレンダーで確認できます。燃やせるごみは週 2 回、プラスチックは週 1 回、燃やせないごみと資源は月 2 回です。",
+    need: ["お住まいの町名（地区は町名で決まります）"],
+    flow: ["収集カレンダーで自分の地区を確認する", "収集日の朝 8時30分までに、決められた集積所へ出す"],
+    desk: "kankyo",
+    note: ["祝日も収集します。年末年始（12 月 31 日〜1 月 3 日）は休みです。", "収集カレンダーは毎年 3 月に全戸へ配ります。市民課と各支所でも受け取れます。"] },
+  { id: "bunbetsu", c: "gomi", v: 12480, k: "+分別 +ごみ リサイクル 出し方",
+    q: "ごみの分け方がわからないときは？",
+    a: "品目ごとの分け方は「ごみ分別辞典」で 50 音順に調べられます。迷ったら環境課へおたずねください。",
+    need: ["指定ごみ袋（燃やせるごみ・燃やせないごみ・プラスチック）"],
+    flow: ["分別辞典で品目を調べる", "区分ごとに指定袋へ入れる（資源は種類ごとにまとめる）", "収集日に出す"],
+    desk: "kankyo",
+    note: ["汚れが落ちないプラスチックは、燃やせるごみに出してください。", "びん・缶・ペットボトルは、中を軽くすすいで集積所のかごへ入れます。"] },
+  { id: "kaden", c: "gomi", v: 9870, k: "+家電 +ごみ リサイクル 料金",
+    q: "テレビ・冷蔵庫・洗濯機・エアコンを処分したいときは？",
+    a: "この 4 品目は市では収集しません。買い替える店か、買った店に引き取りを頼んでください。リサイクル料金と運搬料がかかります。",
+    need: ["リサイクル料金（品目と大きさによって 1,000 円〜5,000 円ほど）", "運搬料（店によって違います）"],
+    flow: ["買い替える店か、買った店に引き取りを頼む", "店がわからないときは、市の許可を受けた収集業者に頼む", "自分で運ぶ場合は、郵便局でリサイクル券を買い、指定の引取場所へ持ち込む"],
+    desk: "kankyo",
+    note: ["衣類乾燥機と冷凍庫も同じ扱いです。", "無料回収をうたう無許可の業者には頼まないでください。"] },
+  { id: "pasokon", c: "gomi", v: 6750, k: "+パソコン +ごみ リサイクル 回収",
+    q: "パソコンや小型家電を処分したいときは？",
+    a: "パソコンはメーカーが回収します。携帯電話などの小型家電は、市役所や公民館の回収ボックスに入れてください。",
+    need: ["パソコン：メーカーへの申し込み（リサイクルの印があれば無料）", "小型家電：投入口（30cm × 15cm）に入る大きさのもの"],
+    flow: ["パソコンはメーカーの窓口に申し込み、届いた伝票を貼って送る", "小型家電は、データを消してから回収ボックスへ入れる"],
+    desk: "kankyo",
+    note: ["回収ボックスは、本庁舎 1 階・各支所・公民館 5 か所にあります。", "投入口に入らない小型家電は、燃やせないごみか粗大ごみです。"] },
+  { id: "hikkoshi-gomi", c: "gomi", v: 7890, k: "+大量 +ごみ 引っ越し 粗大ごみ 持ち込",
+    q: "引っ越しで大量のごみが出るときは？",
+    a: "集積所に一度に出せるのは 4 袋までです。それより多いときは、清掃センターへ自分で持ち込むか、市の許可を受けた業者に頼んでください。",
+    need: ["持ち込みの場合：本人確認書類（市内に住んでいることを確認します）", "持ち込みの手数料（10kg ごとに 150 円）"],
+    flow: ["粗大ごみは早めに申し込む（3 月・4 月は 2 週間待ち）", "袋のごみは、収集日ごとに 4 袋ずつ出す", "間に合わない分は、清掃センターへ持ち込む（月〜土曜 9時〜16時）"],
+    desk: "kankyo",
+    note: ["引っ越したあとに残したごみは収集しません。", "家電 4 品目とパソコンは、清掃センターでも受け取れません。"] },
+  { id: "fukuro", c: "gomi", v: 5120, k: "+ごみ袋 ごみ 買 料金 どこ",
+    q: "指定ごみ袋はどこで買えますか？",
+    a: "市内のスーパー・コンビニ・ドラッグストアなどで買えます。10 枚入りで、45 リットルが 450 円、30 リットルが 300 円、15 リットルが 150 円です。",
+    need: ["手続きは要りません"],
+    flow: ["取扱店で、ごみの区分に合った袋を買う", "区分ごとに入れて、収集日に出す"],
+    desk: "kankyo",
+    note: ["袋は、燃やせるごみ用・燃やせないごみ用・プラスチック用の 3 種類です。", "紙おむつを使うご家庭には、年 60 枚を無料で配ります（こども家庭課・高齢福祉課で申請）。"] },
+  { id: "denchi", c: "gomi", v: 5680, k: "+電池 +ごみ 出し方 危険",
+    q: "電池・スプレー缶・ライターの出し方は？",
+    a: "「有害・危険ごみ」として、月 1 回の収集日に、中身の見える袋に入れて出してください。指定袋は要りません。",
+    need: ["透明か半透明の袋（種類ごとに分けます）"],
+    flow: ["スプレー缶とライターは、中身を使い切る", "電池・スプレー缶・ライターを別々の袋に入れる", "有害・危険ごみの日に集積所へ出す"],
+    desk: "kankyo",
+    note: ["スプレー缶に穴を開ける必要はありません。", "充電式の電池とモバイルバッテリーは、電器店などの回収箱へ入れてください。", "ほかのごみに混ぜると、収集車の火災の原因になります。"] },
+
+  /* 施設の予約 */
+  { id: "riyo-toroku", c: "shisetsu", v: 5340, k: "+施設 +登録 予約 システム はじめて",
+    q: "施設予約システムを使うための登録は？",
+    a: "はじめて使うときは利用者登録が必要です。本人確認書類を持って、使いたい施設の窓口へお越しください。その日から予約できます。",
+    need: ["本人確認書類", "団体で登録する場合は、5 名以上の名簿"],
+    flow: ["施設の窓口で登録申請書を出す", "利用者番号と仮の暗証番号を受け取る", "システムにログインして、暗証番号を変える"],
+    desk: "shisetsu",
+    note: ["登録は 3 年間有効です。期限の 2 か月前から更新できます。", "1 つの登録で、市内のすべての対象施設を予約できます。"] },
+  { id: "taiikukan", c: "shisetsu", v: 6920, k: "+体育館 +予約 施設 抽選",
+    q: "体育館やテニスコートを予約したいときは？",
+    a: "施設予約システムで、使いたい月の 2 か月前の 1 日〜10 日に抽選を申し込めます。空いているコマは、前月の 21 日から先着順で予約できます。",
+    need: ["利用者登録（利用者番号と暗証番号）"],
+    flow: ["2 か月前の 1 日〜10 日に抽選を申し込む", "12 日に結果を確認し、20 日までに確定の操作をする", "空きのコマは、前月の 21 日から先着で予約する", "当日、窓口で使用料を支払う"],
+    desk: "shisetsu",
+    note: ["総合体育館の個人利用（一般開放）は、予約なしで使えます。", "確定の操作をしないと、当選は取り消されます。"] },
+  { id: "kominkan", c: "shisetsu", v: 4860, k: "+会議室 +予約 施設 借り",
+    q: "公民館・集会室を借りたいときは？",
+    a: "使いたい日の 2 か月前の 1 日から、施設予約システムか公民館の窓口で、先着順に予約できます。",
+    need: ["利用者登録（団体登録）", "使用料（部屋と時間帯によって 400 円〜2,400 円）"],
+    flow: ["システムか窓口で空きを確認して予約する", "使う日までに使用料を支払う", "当日、窓口で鍵を受け取る"],
+    desk: "shisetsu",
+    note: ["営利を目的とする利用や、政治・宗教の活動には貸し出せません。", "同じ団体が連続して予約できるのは、月 4 回までです。"] },
+  { id: "cancel", c: "shisetsu", v: 5590, k: "+キャンセル +予約 施設 料金",
+    q: "施設の予約を取り消したい・変更したいときは？",
+    a: "施設予約システムの「予約の確認」から取り消せます。使う日の 7 日前までなら使用料はかかりません。",
+    need: ["利用者番号と暗証番号"],
+    flow: ["システムにログインして「予約の確認」を開く", "取り消す予約を選び、取り消しを確定する", "日時を変えたい場合は、取り消してから取り直す"],
+    desk: "shisetsu",
+    note: ["6 日前から当日の取り消しは、使用料の全額がかかります。", "連絡なしで使わなかった場合は、3 か月間、新しい予約ができなくなります。", "悪天候で屋外施設が使えない場合は、使用料は戻ります。"] },
+  { id: "chusen", c: "shisetsu", v: 3980, k: "+抽選 施設 予約 日程 いつ",
+    q: "施設の抽選申し込みの日程は？",
+    a: "毎月 1 日〜10 日に、2 か月先の分を申し込めます。12 日に結果を公開し、20 日までに確定の操作が必要です。",
+    need: ["利用者登録（利用者番号と暗証番号）"],
+    flow: ["1 日〜10 日：抽選を申し込む（1 団体 8 コマまで）", "12 日：結果を公開する", "13 日〜20 日：当選した分を確定する", "21 日〜：空きのコマを先着で予約する"],
+    desk: "shisetsu",
+    note: ["申し込みの早い・遅いは、当選に関係しません。", "市の行事や大会が入っている日は、抽選の対象外です。"] },
+  { id: "ryokin", c: "shisetsu", v: 4410, k: "+料金 施設 予約 納付 体育館",
+    q: "施設の使用料と支払い方法は？",
+    a: "使用料は、施設と時間帯ごとに決まっています。使う日までに、施設の窓口で現金かキャッシュレス決済で支払ってください。",
+    need: ["予約番号", "使用料（例：体育館の半面 2 時間 1,200 円、テニスコート 1 面 1 時間 600 円）"],
+    flow: ["予約のときに表示される使用料を確認する", "使う日までに窓口で支払う", "領収書を、当日窓口に出す"],
+    desk: "shisetsu",
+    note: ["市外の方が使う場合は 1.5 倍になります。", "障害のある方や、子どもの団体の活動は、申請すると半額になります。"] },
+
+  /* マイナンバー */
+  { id: "card-shinsei", c: "mynumber", v: 14980, k: "+マイナンバー +作る カード 写真",
+    q: "マイナンバーカードを作りたいときは？",
+    a: "交付申請書の読み取りコードを使って、スマートフォン・パソコン・証明写真機・郵送のいずれかで申請できます。申請から受け取りまで 1 か月ほどです。",
+    need: ["交付申請書（読み取りコードつき）", "顔写真（6 か月以内に撮ったもの）"],
+    flow: ["交付申請書の読み取りコードを読み込み、顔写真を登録して申請する", "約 1 か月後に、交付通知書（はがき）が届く", "受け取りの日時を予約して、市民課で受け取る"],
+    desk: "shimin",
+    note: ["交付申請書をなくした場合は、市民課で本人確認のうえ再発行します。", "はじめて作るときの手数料は無料です。", "市民課の窓口で、写真の撮影と申請のお手伝いもしています（予約制）。"] },
+  { id: "card-uketori", c: "mynumber", v: 9310, k: "+マイナンバー +受け取り カード 予約 代理",
+    q: "マイナンバーカードの受け取り方は？",
+    a: "交付通知書（はがき）が届いたら、日時を予約して、本人が市民課へお越しください。窓口で暗証番号を決めます。",
+    need: ["交付通知書（はがき）", "本人確認書類（顔写真つきなら 1 点、なければ 2 点）", "通知カード（お持ちの場合）", "住民基本台帳カード（お持ちの場合）"],
+    flow: ["予約サイトか電話で、受け取りの日時を予約する", "本人が市民課へ行く", "暗証番号を決めて、カードを受け取る（20 分ほど）"],
+    desk: "shimin",
+    note: ["15 歳未満の方は、保護者と一緒にお越しください。", "入院などでどうしても来られない場合に限り、代理人が受け取れます。先にご相談ください。", "通知書の期限を過ぎても、カードは受け取れます。"] },
+  { id: "card-funshitsu", c: "mynumber", v: 8640, k: "+マイナンバー +なくした カード 再発行 停止",
+    q: "マイナンバーカードをなくしたときは？",
+    a: "まず、カードの一時停止の専用ダイヤル（24 時間）に電話して機能を止めてください。そのあと警察に届け出て、市民課で再交付を申請します。",
+    need: ["警察で受け付けた遺失届の受理番号", "本人確認書類", "顔写真", "再交付の手数料 1,000 円"],
+    flow: ["専用ダイヤルに電話して、カードの機能を一時停止する", "警察に遺失届を出し、受理番号を控える", "市民課で紛失の届出と再交付の申請をする", "約 1 か月後に新しいカードを受け取る"],
+    desk: "shimin",
+    note: ["家の中でなくした場合は、警察への届出の代わりに、市民課で経緯を書いていただきます。", "見つかったときは、市民課で一時停止を解除できます。", "急ぐ方は、1 週間ほどで届く特急発行を申し込めます。"] },
+  { id: "ansho", c: "mynumber", v: 10230, k: "+暗証番号 マイナンバー カード 遅れた 再設定",
+    q: "暗証番号を忘れた・ロックされたときは？",
+    a: "本人がマイナンバーカードと本人確認書類を持って市民課へ来ていただければ、その場で設定し直せます。",
+    need: ["マイナンバーカード", "本人確認書類（運転免許証など、カード以外に 1 点）"],
+    flow: ["市民課で再設定の申請書を出す", "窓口の端末で、新しい暗証番号を自分で入力する"],
+    desk: "shimin", shisho: true,
+    note: ["4 桁の暗証番号は 3 回、6〜16 桁の署名用の暗証番号は 5 回続けて間違えるとロックされます。", "署名用の暗証番号だけなら、スマートフォンのアプリとコンビニの端末でも設定し直せます。", "手数料はかかりません。"] },
+  { id: "koshin", c: "mynumber", v: 7560, k: "+更新 マイナンバー カード 電子証明書",
+    q: "マイナンバーカード・電子証明書の更新は？",
+    a: "有効期限の 2〜3 か月前に通知書が届きます。電子証明書は市民課の窓口で、カード本体は新しいカードを申請して更新します。",
+    need: ["有効期限通知書", "マイナンバーカード", "暗証番号（忘れた場合は、その場で設定し直せます）"],
+    flow: ["通知書が届く", "電子証明書：カードを持って市民課へ行く（15 分ほど）", "カード本体：通知書の読み取りコードから新しいカードを申請し、約 1 か月後に受け取る"],
+    desk: "shimin", shisho: true,
+    note: ["カード本体は 10 回目の誕生日まで（18 歳未満は 5 回目）、電子証明書は 5 回目の誕生日まで有効です。", "更新の手数料は無料です。", "期限が切れても更新できますが、切れている間はコンビニでの証明書の発行などが使えません。"] },
+  { id: "card-jusho", c: "mynumber", v: 6180, k: "+マイナンバー 引っ越し 転入 カード 住所",
+    q: "引っ越したときのマイナンバーカードの手続きは？",
+    a: "転入届や転居届と一緒に、カードの住所を書き換えます。世帯の全員分のカードと、4 桁の暗証番号をご用意ください。",
+    need: ["マイナンバーカード（世帯の全員分）", "それぞれの 4 桁の暗証番号"],
+    flow: ["市民課で転入届・転居届を出す", "同じ窓口で、カードの裏面に新しい住所を書き入れる", "署名用電子証明書を使う方は、新しく発行する"],
+    desk: "shimin", shisho: true,
+    note: ["転入届を出した日から 90 日以内に書き換えないと、カードが失効します。", "引っ越すと、署名用電子証明書は自動的に失効します。電子申告などに使う方は発行し直してください。"] }
+];
+
+var Engine = (function () {
+  var KANJI = /[㐀-鿿々]/;
+  var KATA = /[ァ-ヺー]/;
+  var PUNCT = /[\s、。,.!?・「」『』()\[\]〜~…:;\/\-]/g;
+  var STOP = ["手続き", "手続", "必要", "方法", "場合", "教えて", "知りたい", "市役所", "とき", "したい", "何を", "どう", "ですか", "ますか"];
+  var NONE_ART = 1.9, NONE_CAT = 2.2, FLOOR = 0.15;
+
+  function fold(s) { return String(s).normalize("NFKC").toLowerCase(); }
+  function hira(s) { return s.replace(/[ァ-ヶ]/g, function (c) { return String.fromCharCode(c.charCodeAt(0) - 96); }); }
+  function norm(s) { return hira(fold(s)).replace(PUNCT, ""); }
+
+  function grams(s) {
+    var t = fold(s), out = {}, i;
+    for (i = 0; i < STOP.length; i++) t = t.split(STOP[i]).join("|");
+    t = t.replace(PUNCT, "|");
+    for (i = 0; i < t.length - 1; i++) {
+      var a = t.charAt(i), b = t.charAt(i + 1);
+      if (a === "|" || b === "|") continue;
+      var ka = KANJI.test(a), kb = KANJI.test(b);
+      if (ka && kb) out[hira(a + b)] = 1;
+      else if (ka || kb) out[hira(a + b)] = 0.5;
+      else if (KATA.test(a) && KATA.test(b)) out[hira(a + b)] = 1;
+    }
+    return out;
+  }
+
+  function parseTerms(k) {
+    return k.split(" ").filter(Boolean).map(function (raw) {
+      var core = raw.charAt(0) === "+";
+      var id = core ? raw.slice(1) : raw;
+      var vs = (ALIAS[id] || [id]).map(norm);
+      return { id: id, core: core, vs: vs, w: 0 };
+    });
+  }
+
+  var catById = {}, N = ARTICLES.length, lnN = Math.log(N);
+  var termDf = {}, gramDf = {};
+  CATS.forEach(function (c) { catById[c.id] = c; c.terms = parseTerms(c.k); c.count = 0; });
+  ARTICLES.forEach(function (a) {
+    a.cat = catById[a.c];
+    a.cat.count++;
+    a.path = "/kurashi/" + a.c + "/" + a.id;
+    a.terms = parseTerms(a.k);
+    a.grams = grams(a.q);
+    a.terms.forEach(function (t) { termDf[t.id] = (termDf[t.id] || 0) + 1; });
+    Object.keys(a.grams).forEach(function (g) { gramDf[g] = (gramDf[g] || 0) + 1; });
+  });
+  function rarity(df) { return 0.4 + 0.6 * (Math.log(N / df) / lnN); }
+  ARTICLES.forEach(function (a) {
+    a.terms.forEach(function (t) { t.w = (t.core ? 3 : 1.5) * rarity(termDf[t.id]); });
+  });
+
+  function hitTerms(terms, nq) {
+    return terms.filter(function (t) {
+      for (var i = 0; i < t.vs.length; i++) if (nq.indexOf(t.vs[i]) >= 0) return true;
+      return false;
+    });
+  }
+
+  function integerRates(ps) {
+    var raw = ps.map(function (p) { return p * 100; });
+    var base = raw.map(Math.floor);
+    var rest = 100 - base.reduce(function (x, y) { return x + y; }, 0);
+    var order = raw.map(function (r, i) { return { i: i, f: r - Math.floor(r) }; })
+      .sort(function (x, y) { return y.f - x.f || x.i - y.i; });
+    for (var k = 0; k < rest && k < order.length; k++) base[order[k].i]++;
+    return base;
+  }
+
+  function search(query, filter) {
+    var nq = norm(query);
+    var qg = grams(query);
+    var qgKeys = Object.keys(qg);
+
+    var scored = ARTICLES.map(function (a) {
+      var hits = hitTerms(a.terms, nq);
+      var s = 0;
+      hits.forEach(function (t) { s += t.w; });
+      var g = 0, gh = [];
+      qgKeys.forEach(function (k) {
+        if (a.grams[k]) {
+          g += 0.9 * Math.min(qg[k], a.grams[k]) * rarity(gramDf[k]);
+          if (qg[k] === 1 && a.grams[k] === 1) gh.push(k);
+        }
+      });
+      s += Math.min(g, 3);
+      return { a: a, s: s, hits: hits, gh: gh };
+    });
+
+    var catScore = CATS.map(function (c) {
+      var own = scored.filter(function (x) { return x.a.c === c.id; }).map(function (x) { return x.s; })
+        .sort(function (x, y) { return y - x; });
+      var ch = hitTerms(c.terms, nq).length;
+      scored.forEach(function (x) { if (x.a.c === c.id && ch) x.s += 0.5; });
+      return (own[0] || 0) + 0.4 * (own[1] || 0) + 1.5 * ch;
+    });
+    var cw = catScore.map(function (s) { return Math.pow(s, 1.6); });
+    var cNone = Math.pow(NONE_CAT, 1.6);
+    var cSum = cw.reduce(function (x, y) { return x + y; }, 0) + cNone;
+    var cats = CATS.map(function (c, i) { return { id: c.id, name: c.name, p: cw[i] / cSum }; });
+    var catNone = cNone / cSum;
+
+    var chosen;
+    if (filter) chosen = [filter];
+    else {
+      var ranked = cats.slice().sort(function (x, y) { return y.p - x.p; });
+      chosen = ranked.filter(function (c, i) { return c.p >= 0.08 || i < 2; }).slice(0, 4).map(function (c) { return c.id; });
+    }
+
+    var catP = {};
+    cats.forEach(function (c) { catP[c.id] = c.p; });
+    var pool = scored.filter(function (x) { return chosen.indexOf(x.a.c) >= 0; })
+      .sort(function (x, y) { return y.s - x.s || catP[y.a.c] - catP[x.a.c] || y.a.v - x.a.v; });
+    var w = pool.map(function (x) { return Math.pow(x.s > 0 ? x.s + FLOOR : FLOOR * 0.4, 2); });
+    var wNone = NONE_ART * NONE_ART;
+    var sum = w.reduce(function (x, y) { return x + y; }, 0) + wNone;
+    pool.forEach(function (x, i) { x.p = w[i] / sum; });
+    var poolNone = wNone / sum;
+
+    var byP = cats.slice().sort(function (x, y) { return y.p - x.p; });
+    var mixed = !filter && byP[1].p >= 0.2;
+    var top = [];
+    if (mixed) {
+      var rest = pool.slice(), seen = {};
+      while (top.length < 3 && rest.length) {
+        var bi = 0, bv = -1;
+        rest.forEach(function (x, i) {
+          var v = x.s * Math.pow(0.6, seen[x.a.c] || 0);
+          if (v > bv) { bv = v; bi = i; }
+        });
+        var pick = rest.splice(bi, 1)[0];
+        seen[pick.a.c] = (seen[pick.a.c] || 0) + 1;
+        top.push(pick);
+      }
+      top.sort(function (x, y) { return y.p - x.p; });
+    } else {
+      top = pool.slice(0, 3);
+    }
+    var tSum = top.reduce(function (x, y) { return x + y.p; }, 0) + poolNone;
+    var rates = integerRates(top.map(function (x) { return x.p / tSum; }).concat([poolNone / tSum]));
+    top = top.map(function (x, i) { return { a: x.a, rate: rates[i], hits: x.hits, gh: x.gh }; });
+
+    return {
+      q: query, filter: filter || null,
+      cats: cats, catNone: catNone, chosen: chosen,
+      pool: pool, poolNone: poolNone,
+      top: top, none: rates[rates.length - 1], mixed: mixed
+    };
+  }
+
+  function highlight(title, cand) {
+    var chars = Array.from(title);
+    var m = chars.map(function (ch) { var f = hira(fold(ch)); return f.length === 1 ? f : ch; }).join("");
+    var on = [];
+    var needles = cand.gh.slice();
+    cand.hits.forEach(function (t) { needles = needles.concat(t.vs); });
+    needles.forEach(function (n) {
+      if (!n) return;
+      var from = 0, at;
+      while ((at = m.indexOf(n, from)) >= 0) {
+        for (var i = at; i < at + n.length; i++) on[i] = true;
+        from = at + 1;
+      }
+    });
+    return chars.map(function (ch, i) { return { ch: ch, on: !!on[i] }; });
+  }
+
+  function popular(filter) {
+    return ARTICLES.filter(function (a) { return !filter || a.c === filter; })
+      .sort(function (x, y) { return y.v - x.v; }).slice(0, 8);
+  }
+
+  return { search: search, highlight: highlight, popular: popular, norm: norm, catById: catById };
+})();
+
+/* == 画面 == */
+
+(function () {
+  if (typeof document === "undefined") return;
+
+  var $ = function (id) { return document.getElementById(id); };
+  var root = document.documentElement;
+  var params;
+  try { params = new URLSearchParams(location.search); } catch (e) { params = { get: function () { return null; } }; }
+
+  var input = $("q"), searchBox = $("search"), clearBtn = $("clear"), slash = $("slash");
+  var catsEl = $("cats"), catsTitle = $("cats-title"), catClear = $("cat-clear");
+  var listEl = $("list"), listTitle = $("list-title"), listSide = $("list-side"), notice = $("notice");
+  var detailEl = $("detail"), live = $("live");
+
+  var S = {
+    filter: null, sel: null, result: null, cats: null, busy: false,
+    seq: 0, debounce: null, timers: [], composing: false,
+    delay: "normal", threshold: 30, count: 0, typing: null
+  };
+  var DELAYS = { fast: [120, 200], normal: [300, 700], slow: [1300, 1900] };
+
+  function esc(s) {
+    return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; });
+  }
+  function fmt(n) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ","); }
+  function articleById(id) { for (var i = 0; i < ARTICLES.length; i++) if (ARTICLES[i].id === id) return ARTICLES[i]; return null; }
+  function hasQuery() { return Engine.norm(input.value).length > 0; }
+
+  /* ---- 明るさの切り替え ---- */
+  function setTheme(t, save) {
+    root.setAttribute("data-theme", t);
+    Array.prototype.forEach.call(document.querySelectorAll("[data-theme-set]"), function (b) {
+      b.setAttribute("aria-pressed", String(b.getAttribute("data-theme-set") === t));
+    });
+    if (save) { try { localStorage.setItem("faq-theme", t); } catch (e) {} }
+  }
+  setTheme(root.getAttribute("data-theme"), false);
+  Array.prototype.forEach.call(document.querySelectorAll("[data-theme-set]"), function (b) {
+    b.addEventListener("click", function () { setTheme(b.getAttribute("data-theme-set"), true); });
+  });
+
+  /* ---- 分野 ---- */
+  function buildCats() {
+    catsEl.innerHTML = CATS.map(function (c) {
+      return '<li><button type="button" class="cat" data-cat="' + c.id + '" aria-pressed="false">' +
+        '<span class="cat-name">' + esc(c.name) + '</span><span class="cat-val"></span>' +
+        '<span class="cat-bar"><i></i></span></button></li>';
+    }).join("");
+  }
+  function renderCats() {
+    var active = hasQuery();
+    catsTitle.textContent = active ? "どの分野の質問か" : "分野からさがす";
+    catClear.setAttribute("data-off", String(!S.filter));
+    Array.prototype.forEach.call(catsEl.querySelectorAll(".cat"), function (b, i) {
+      var c = CATS[i], val = b.querySelector(".cat-val"), bar = b.querySelector(".cat-bar i");
+      b.setAttribute("aria-pressed", String(S.filter === c.id));
+      if (active && S.cats) {
+        var pct = Math.round(S.cats[i].p * 100);
+        val.textContent = pct + "%";
+        bar.style.width = pct + "%";
+        b.setAttribute("data-level", pct >= 25 ? "high" : pct >= 5 ? "mid" : "low");
+        b.setAttribute("aria-label", c.name + "、" + pct + "パーセント" + (S.filter === c.id ? "、この分野に絞り込み中" : ""));
+      } else if (active) {
+        val.textContent = "…";
+        bar.style.width = "0%";
+        b.setAttribute("data-level", "mid");
+        b.removeAttribute("aria-label");
+      } else {
+        val.textContent = c.count + "件";
+        bar.style.width = "0%";
+        b.setAttribute("data-level", "mid");
+        b.setAttribute("aria-label", c.name + "、" + c.count + "件" + (S.filter === c.id ? "、この分野に絞り込み中" : ""));
+      }
+    });
+  }
+  catsEl.addEventListener("click", function (e) {
+    var b = e.target.closest(".cat");
+    if (!b) return;
+    setFilter(S.filter === b.getAttribute("data-cat") ? null : b.getAttribute("data-cat"));
+  });
+  catClear.addEventListener("click", function () { setFilter(null); });
+  function setFilter(id) {
+    S.filter = id;
+    if (hasQuery()) { renderCats(); request(true); }
+    else { S.sel = null; renderAll(); }
+  }
+
+  /* ---- 候補の一覧 ---- */
+  function titleHtml(cand) {
+    var out = "", open = false;
+    Engine.highlight(cand.a.q, cand).forEach(function (x) {
+      if (x.on && !open) { out += "<mark>"; open = true; }
+      if (!x.on && open) { out += "</mark>"; open = false; }
+      out += esc(x.ch);
+    });
+    return out + (open ? "</mark>" : "");
+  }
+  function skeleton() {
+    var row = '<li><div class="skel"><div><b></b><b></b></div><u></u></div></li>';
+    return row + row + row + '<li><div class="skel small"><div><b style="width:48%"></b></div><u></u></div></li>';
+  }
+  function setNotice(kind) {
+    notice.setAttribute("data-on", String(kind === "none"));
+    if (kind === "none") notice.innerHTML = '当てはまる Q&amp;A が見つからないかもしれません<a href="#/contact">問い合わせる</a>';
+    else notice.textContent = kind === "popular" ? "見られた回数の多い順に並べています" : kind === "wait" ? "さがしています" : "一致率の高い順に 3 件を表示しています";
+  }
+  function noticeForResult() { setNotice(S.result.none >= S.threshold ? "none" : "results"); }
+  function renderList() {
+    var active = hasQuery();
+    var name = S.filter ? Engine.catById[S.filter].name : "";
+    if (!active) {
+      listTitle.textContent = "よく見られている Q&A" + (name ? "（" + name + "）" : "");
+      listSide.textContent = "見られた回数";
+      listEl.setAttribute("data-mode", "popular");
+      listEl.setAttribute("data-dim", "false");
+      setNotice("popular");
+      listEl.innerHTML = Engine.popular(S.filter).map(function (a) {
+        return '<li><button type="button" class="row" data-id="' + a.id + '" aria-current="' + (S.sel === a.id) + '">' +
+          '<span class="row-main"><span class="row-title">' + esc(a.q) + '</span><span class="row-meta">' + esc(a.cat.name) + '</span></span>' +
+          '<span class="row-side"><span class="row-num">' + fmt(a.v) + '</span><span class="row-sub">回</span></span></button></li>';
+      }).join("");
+      return;
+    }
+    listTitle.textContent = "当てはまりそうな Q&A" + (name ? "（" + name + "）" : "");
+    listSide.textContent = "一致率";
+    listEl.setAttribute("data-mode", "results");
+    listEl.scrollTop = 0;
+    if (!S.result) {
+      listEl.setAttribute("data-dim", "false");
+      setNotice("wait");
+      listEl.innerHTML = skeleton();
+      return;
+    }
+    listEl.setAttribute("data-dim", String(S.busy));
+    noticeForResult();
+    listEl.innerHTML = S.result.top.map(function (c) {
+      return '<li><button type="button" class="row" data-id="' + c.a.id + '" aria-current="' + (S.sel === c.a.id) + '">' +
+        '<span class="row-main"><span class="row-title">' + titleHtml(c) + '</span><span class="row-meta">' + esc(c.a.cat.name) + '</span></span>' +
+        '<span class="row-side"><span class="row-num">' + c.rate + '<small>%</small></span>' +
+        '<span class="bar"><i style="width:' + c.rate + '%"></i></span></span></button></li>';
+    }).join("") +
+      '<li><a class="row row-none" href="#/contact" style="text-decoration:none">' +
+      '<span class="row-main"><span class="row-title">この中にないときは問い合わせる</span></span>' +
+      '<span class="row-side"><span class="row-num">' + S.result.none + '<small>%</small></span></span></a></li>';
+  }
+  function rowIds() {
+    return Array.prototype.map.call(listEl.querySelectorAll(".row[data-id]"), function (r) { return r.getAttribute("data-id"); });
+  }
+  function markSelection() {
+    Array.prototype.forEach.call(listEl.querySelectorAll(".row[data-id]"), function (r) {
+      var on = r.getAttribute("data-id") === S.sel;
+      r.setAttribute("aria-current", String(on));
+      if (on) {
+        var li = r.parentNode;
+        if (li.offsetTop < listEl.scrollTop) listEl.scrollTop = li.offsetTop;
+        else if (li.offsetTop + li.offsetHeight > listEl.scrollTop + listEl.clientHeight) listEl.scrollTop = li.offsetTop + li.offsetHeight - listEl.clientHeight;
+      }
+    });
+  }
+  function select(id) {
+    S.sel = id;
+    markSelection();
+    renderDetail();
+  }
+  function isStacked() { return detailEl.getBoundingClientRect().top > listEl.getBoundingClientRect().bottom - 4; }
+  function reduced() { return window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches; }
+  function showDetail(focus) {
+    if (!S.sel) return;
+    if (isStacked()) detailEl.scrollIntoView({ behavior: reduced() ? "auto" : "smooth", block: "start" });
+    if (focus) { var h = detailEl.querySelector(".detail-q"); if (h) h.focus({ preventScroll: true }); }
+  }
+  listEl.addEventListener("click", function (e) {
+    var r = e.target.closest(".row[data-id]");
+    if (!r) return;
+    select(r.getAttribute("data-id"));
+    showDetail(false);
+  });
+  function moveSelection(step, focusRow) {
+    var ids = rowIds();
+    if (!ids.length) return;
+    var i = ids.indexOf(S.sel);
+    i = i < 0 ? (step > 0 ? 0 : ids.length - 1) : Math.max(0, Math.min(ids.length - 1, i + step));
+    select(ids[i]);
+    if (focusRow) { var r = listEl.querySelector('.row[data-id="' + ids[i] + '"]'); if (r) r.focus(); }
+  }
+
+  /* ---- 答え ---- */
+  function listHtml(items, ordered) {
+    var tag = ordered ? "ol" : "ul";
+    return "<" + tag + ">" + items.map(function (x) { return "<li>" + esc(x) + "</li>"; }).join("") + "</" + tag + ">";
+  }
+  function deskText(a) { return DESKS[a.desk] + (a.shisho ? SHISHO : ""); }
+  function sections(a) {
+    return [
+      ["必要なもの", listHtml(a.need, false)],
+      ["手続きの流れ", listHtml(a.flow, true)],
+      ["窓口と受付時間", "<p>" + esc(deskText(a)) + "</p>"],
+      ["注意点", listHtml(a.note, false)]
+    ];
+  }
+  var shownDetail = null;
+  function renderDetail() {
+    var a = S.sel ? articleById(S.sel) : null;
+    if ((a ? a.id : "") === shownDetail) return;
+    shownDetail = a ? a.id : "";
+    if (!a) {
+      detailEl.innerHTML = '<p class="detail-empty">' + (hasQuery() ? "候補を選ぶと、ここに答えを表示します。" : "Q&amp;A を選ぶと、ここに答えを表示します。") + "</p>";
+      return;
+    }
+    detailEl.innerHTML =
+      '<p class="detail-cat">' + esc(a.cat.name) + "</p>" +
+      '<h3 class="detail-q" tabindex="-1">' + esc(a.q) + "</h3>" +
+      '<p class="detail-a">' + esc(a.a) + "</p>" +
+      '<div class="acc">' + sections(a).map(function (s) {
+        return "<details><summary>" + s[0] + '</summary><div class="acc-body">' + s[1] + "</div></details>";
+      }).join("") + "</div>" +
+      '<p class="open-line"><a href="#' + a.path + '">この Q&amp;A のページを開く</a><span class="path">' + esc(a.path) + "</span></p>";
+  }
+
+  /* ---- 検索 ---- */
+  function clearTimers() { S.timers.forEach(clearTimeout); S.timers = []; clearTimeout(S.debounce); S.debounce = null; }
+  function setBusy(on) { S.busy = on; searchBox.setAttribute("data-busy", String(on)); }
+  function syncInputChrome() {
+    var has = input.value.length > 0;
+    clearBtn.hidden = !has;
+    slash.hidden = has;
+  }
+  function syncUrl() {
+    try {
+      var p = new URLSearchParams(location.search);
+      if (input.value) p.set("q", input.value); else p.delete("q");
+      var qs = p.toString();
+      history.replaceState(null, "", location.pathname + (qs ? "?" + qs : "") + location.hash);
+    } catch (e) {}
+  }
+  function renderAll() { renderCats(); renderList(); renderDetail(); }
+
+  function request(immediate) {
+    syncInputChrome();
+    clearTimers();
+    S.seq++;
+    if (!hasQuery()) {
+      setBusy(false);
+      S.result = null; S.cats = null; S.sel = null;
+      renderAll(); syncUrl(); demoIdle();
+      live.textContent = "";
+      return;
+    }
+    setBusy(true);
+    if (!S.result) { S.sel = null; }
+    renderCats(); renderList(); renderDetail();
+    S.debounce = setTimeout(run, immediate ? 0 : 260);
+  }
+  function run() {
+    S.debounce = null;
+    var my = S.seq, query = input.value;
+    var plan = Engine.search(query, S.filter);
+    var range = DELAYS[S.delay];
+    var total = Math.round(range[0] + Math.random() * (range[1] - range[0]));
+    var t1 = Math.round(total * (0.36 + Math.random() * 0.1));
+    syncUrl();
+    demoStart(plan);
+    S.timers.push(setTimeout(function () {
+      if (my !== S.seq) return;
+      S.cats = plan.cats;
+      renderCats();
+      demoStage1(plan, t1);
+      S.timers.push(setTimeout(function () {
+        if (my !== S.seq) return;
+        var prev = S.sel;
+        S.result = plan;
+        var top = plan.top;
+        var clear = top[0].rate >= 45 && top[0].rate - top[1].rate >= 15;
+        var kept = top.some(function (c) { return c.a.id === prev; });
+        S.sel = clear ? top[0].a.id : (kept ? prev : null);
+        setBusy(false);
+        S.count++;
+        renderList(); renderDetail();
+        demoStage2(plan, total - t1, total);
+        live.textContent = "候補を 3 件表示しました。1 件目は「" + top[0].a.q + "」、一致率 " + top[0].rate + " パーセント。";
+      }, total - t1));
+    }, t1));
+  }
+
+  input.addEventListener("compositionstart", function () { S.composing = true; });
+  input.addEventListener("compositionend", function () { S.composing = false; request(false); });
+  input.addEventListener("input", function (e) {
+    if (e.isTrusted) stopTyping();
+    if (S.composing || e.isComposing) { syncInputChrome(); return; }
+    request(false);
+  });
+  clearBtn.addEventListener("click", function () { stopTyping(); input.value = ""; S.filter = null; request(true); input.focus(); });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.isComposing || e.keyCode === 229) return;
+    var t = e.target, inField = t === input;
+    var typingElsewhere = !inField && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.tagName === "SELECT" || t.isContentEditable);
+    var searchShown = !$("view-search").hidden;
+    if (e.key === "/" && !inField && !typingElsewhere && searchShown && !e.metaKey && !e.ctrlKey && !e.altKey) {
+      e.preventDefault(); input.focus(); input.select(); return;
+    }
+    if ((e.key === "D") && e.shiftKey && !inField && !typingElsewhere && !e.metaKey && !e.ctrlKey && !e.altKey) {
+      e.preventDefault(); setDock(root.getAttribute("data-dock") === "off" ? "open" : "off"); return;
+    }
+    if (!searchShown) return;
+    var inList = listEl.contains(t);
+    if (e.key === "Escape" && (inField || inList || detailEl.contains(t))) {
+      e.preventDefault(); stopTyping(); input.value = ""; S.filter = null; request(true); input.focus(); return;
+    }
+    if ((e.key === "ArrowDown" || e.key === "ArrowUp") && (inField || inList)) {
+      e.preventDefault(); moveSelection(e.key === "ArrowDown" ? 1 : -1, inList); return;
+    }
+    if (e.key === "Enter" && inField) {
+      e.preventDefault();
+      stopTyping();
+      if (S.debounce) { clearTimeout(S.debounce); run(); }
+      else if (S.sel) showDetail(true);
+      else if (rowIds().length && !S.busy) { moveSelection(1, false); showDetail(true); }
+    }
+  });
+
+  /* ---- ページの切り替え ---- */
+  var views = { search: $("view-search"), page: $("view-page"), contact: $("view-contact") };
+  function show(name) {
+    Object.keys(views).forEach(function (k) { views[k].hidden = k !== name; });
+  }
+  function renderPage(a) {
+    var days = ["4月8日", "5月20日", "6月3日", "7月15日", "8月26日", "9月9日"];
+    var same = ARTICLES.filter(function (x) { return x.c === a.c && x.id !== a.id; })
+      .sort(function (x, y) { return y.v - x.v; }).slice(0, 3);
+    $("page").innerHTML =
+      '<p class="crumbs"><a href="#/">よくある質問</a><span>›</span><span>' + esc(a.cat.name) + "</span></p>" +
+      "<h1>" + esc(a.q) + "</h1>" +
+      '<p class="page-answer">' + esc(a.a) + "</p>" +
+      '<div class="prose">' + sections(a).map(function (s) { return "<h2>" + s[0] + "</h2>" + s[1]; }).join("") +
+      "<h2>同じ分野の Q&amp;A</h2></div>" +
+      '<ul class="related">' + same.map(function (x) { return '<li><a href="#' + x.path + '">' + esc(x.q) + "</a></li>"; }).join("") + "</ul>" +
+      '<p class="page-meta">2026年' + days[a.v % days.length] + " 更新　<span class=\"path\">" + esc(a.path) + "</span></p>" +
+      '<a class="back" href="#/">よくある質問の検索に戻る</a>';
+    document.title = a.q + " | " + SITE;
+  }
+  function route() {
+    var h = location.hash.replace(/^#/, "");
+    var a = null;
+    if (h.indexOf("/kurashi/") === 0) {
+      for (var i = 0; i < ARTICLES.length; i++) if (ARTICLES[i].path === h) a = ARTICLES[i];
+    }
+    if (a) { renderPage(a); show("page"); window.scrollTo(0, 0); }
+    else if (h === "/contact") {
+      prepareContact(); show("contact"); window.scrollTo(0, 0);
+      document.title = "お問い合わせ | " + SITE;
+    } else {
+      show("search");
+      document.title = "よくある質問 | " + SITE;
+    }
+  }
+  window.addEventListener("hashchange", route);
+
+  /* ---- お問い合わせ ---- */
+  $("desks").innerHTML = CATS.map(function (c) {
+    return "<div><dt>" + esc(c.name) + "</dt><dd>" + esc(DESKS[CAT_DESK[c.id]]) + "</dd></div>";
+  }).join("");
+  $("f-cat").innerHTML = CATS.map(function (c) { return '<option value="' + c.id + '">' + esc(c.name) + "</option>"; }).join("") +
+    '<option value="other">その他・わからない</option>';
+  function prepareContact() {
+    var body = $("f-body");
+    $("f-msg").textContent = "";
+    if (!body.value && input.value) body.value = input.value;
+    var best = "other";
+    if (S.filter) best = S.filter;
+    else if (S.result && S.result.none < S.threshold) best = S.result.top[0].a.c;
+    $("f-cat").value = best;
+  }
+  $("form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var body = $("f-body"), mail = $("f-mail"), msg = $("f-msg");
+    if (!body.value.trim()) { msg.textContent = "お問い合わせの内容を入力してください。"; body.focus(); return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail.value.trim())) { msg.textContent = "返信先のメールアドレスを入力してください。"; mail.focus(); return; }
+    var d = new Date();
+    var no = "Q" + d.getFullYear() + ("0" + (d.getMonth() + 1)).slice(-2) + ("0" + d.getDate()).slice(-2) + "-" + String(1000 + Math.floor(Math.random() * 9000));
+    msg.textContent = "送信しました。受付番号は " + no + " です。3 開庁日以内にメールで返信します。";
+    body.value = ""; mail.value = "";
+  });
+
+  /* ---- デモ用パネル ---- */
+  var SAMPLES = [
+    ["引っ越してきたんだけど、何をすればいい？", ""],
+    ["マイナンバーカードなくしちゃった", ""],
+    ["ソファを捨てたい", ""],
+    ["仕事を辞めたら保険証ってどうなるの", ""],
+    ["赤ちゃんが生まれたらもらえるお金", ""],
+    ["税金が払えなくて困ってる", ""],
+    ["住民票ってコンビニで取れる？", ""],
+    ["テニスコートを借りたいんだけど", ""],
+    ["暗証番号を間違えてロックされた", ""],
+    ["引っ越してきたんだけど、子どもの転校と国保の手続きも要る？", "2 つを同時に"],
+    ["おすすめのラーメン屋は？", "関係のない質問"],
+    ["明日の天気を教えて", "関係のない質問"]
+  ];
+  $("samples").innerHTML = SAMPLES.map(function (s, i) {
+    return '<li><button type="button" class="sample" data-i="' + i + '" data-on="false"><span>' + esc(s[0]) + "</span><small>" + esc(s[1]) + "</small></button></li>";
+  }).join("");
+  function wide() { return window.matchMedia("(min-width: 1180px)").matches; }
+  function setDock(mode) { root.setAttribute("data-dock", mode); }
+  function stopTyping() {
+    if (S.typing) { clearTimeout(S.typing.timer); S.typing = null; }
+    Array.prototype.forEach.call(document.querySelectorAll(".sample"), function (b) { b.setAttribute("data-on", "false"); });
+  }
+  function typeSample(i) {
+    stopTyping();
+    var text = SAMPLES[i][0], chars = Array.from(text), n = 0;
+    if (!views.search || views.search.hidden) location.hash = "#/";
+    if (!wide()) setDock("mini");
+    window.scrollTo(0, 0);
+    document.querySelector('.sample[data-i="' + i + '"]').setAttribute("data-on", "true");
+    S.filter = null;
+    input.value = "";
+    request(true);
+    if (wide()) input.focus({ preventScroll: true });
+    S.typing = { timer: null };
+    (function step() {
+      if (!S.typing) return;
+      n++;
+      input.value = chars.slice(0, n).join("");
+      input.dispatchEvent(new Event("input", { bubbles: true }));
+      if (n >= chars.length) { S.typing = null; return; }
+      var ch = chars[n - 1];
+      var wait = "、。".indexOf(ch) >= 0 ? 520 : ("をがはでと".indexOf(ch) >= 0 && n > 3 ? 340 : 70 + Math.random() * 50);
+      S.typing.timer = setTimeout(step, wait);
+    })();
+  }
+  $("samples").addEventListener("click", function (e) {
+    var b = e.target.closest(".sample");
+    if (b) typeSample(Number(b.getAttribute("data-i")));
+  });
+  $("dock-open").addEventListener("click", function () { setDock("open"); });
+  $("dock-mini").addEventListener("click", function () { setDock("mini"); });
+  $("dock-off").addEventListener("click", function () { setDock("off"); });
+
+  /* 版の切り替え */
+  (function () {
+    var VERSIONS = [
+      { n: 1, file: "v1.html", note: "最初の案" },
+      { n: 2, file: "v2.html", note: "情報を選別した案" },
+      { n: 3, file: "v3.html", note: "動きと案内を足した案" },
+      { n: 4, file: "v4.html", note: "待ち時間と分野の見え方を変えた案" },
+      { n: 5, file: "v5.html", note: "読み取りと束ねを試す案" },
+      { n: 6, file: "v6.html", note: "余白と密度を試す案" },
+      { n: 7, file: "v7.html", note: "版 6 の直し（長い質問・切り替え方）" },
+      { n: 8, file: "v8.html", note: "版 7 の直し" },
+      { n: 9, file: "v9.html", note: "端からめくれるページ" },
+      { n: 10, file: "v10.html", note: "スマートフォンの置き方を詰めた版" },
+      { n: 11, file: "v11.html", note: "版 10 の直し（打っている間の見え方・紙の替わり方・候補の端）" }
+    ];
+    var THIS_VERSION = 1;
+    var box = document.createElement("div");
+    box.className = "ctrl";
+    box.style.marginTop = "10px";
+    box.innerHTML = '<span>版</span><div class="ctrl-row" role="group" aria-label="版の切り替え">' +
+      VERSIONS.map(function (v) {
+        return '<button type="button" class="dbtn" data-version="' + v.n + '" aria-pressed="' + (v.n === THIS_VERSION) + '" title="版 ' + v.n + "：" + esc(v.note) + '">' + v.n + "</button>";
+      }).join("") + "</div>";
+    var note = document.createElement("p");
+    note.className = "dock-sub";
+    note.textContent = VERSIONS.map(function (v) { return "版 " + v.n + "：" + v.note; }).join("　／　") + "（いまは版 " + THIS_VERSION + "）";
+    var head = document.querySelector(".dock-head");
+    head.appendChild(box);
+    head.appendChild(note);
+    box.addEventListener("click", function (e) {
+      var b = e.target.closest("[data-version]");
+      if (!b) return;
+      var v = VERSIONS.filter(function (x) { return String(x.n) === b.getAttribute("data-version"); })[0];
+      if (!v || v.n === THIS_VERSION) return;
+      var p = new URLSearchParams(location.search);
+      if (input.value) p.set("q", input.value); else p.delete("q");
+      if (S.filter) p.set("cat", S.filter); else p.delete("cat");
+      p.set("theme", root.getAttribute("data-theme"));
+      p.set("demo", "1");
+      location.href = v.file + "?" + p.toString();
+    });
+  })();
+
+  var st = [$("st1"), $("st2"), $("st3"), $("st4")];
+  function step(i, state, text) { st[i].setAttribute("data-st", state); st[i].querySelector("span").textContent = text; }
+  function json(o) { return JSON.stringify(o, null, 2); }
+  function p3(x) { return Math.round(x * 1000) / 1000; }
+  function costLine() {
+    return "約 0.21 円／回・この画面で " + S.count + " 回 → 約 " + (S.count * 0.21).toFixed(2) + " 円";
+  }
+  function demoIdle() {
+    step(0, "idle", "待機中"); step(1, "idle", "待機中"); step(2, "idle", "—");
+    step(3, "idle", S.count ? costLine() : "—");
+  }
+  function demoStart(plan) {
+    step(0, "run", "問い合わせ中…"); step(1, "idle", "待機中"); step(2, "idle", "計測中…");
+    $("req1").textContent = json({
+      state: { site: SITE, question: plan.q },
+      questions: [{ id: "category", type: "single_choice", choices: CATS.map(function (c) { return c.name; }).concat(["該当なし"]) }]
+    });
+    $("res1").textContent = "問い合わせ中…";
+    $("req2").textContent = "1 回目の結果を待っています。";
+    $("res2").textContent = "—";
+  }
+  function demoStage1(plan, ms) {
+    var best = plan.cats.slice().sort(function (x, y) { return y.p - x.p; })[0];
+    var label = plan.catNone > best.p ? "該当なし " + Math.round(plan.catNone * 100) + "%" : best.name + " " + Math.round(best.p * 100) + "%";
+    step(0, "done", ms + " ms・" + label);
+    step(1, "run", "問い合わせ中…");
+    var probs = {};
+    plan.cats.forEach(function (c) { probs[c.name] = p3(c.p); });
+    probs["該当なし"] = p3(plan.catNone);
+    $("res1").textContent = json({ category: probs, elapsed_ms: ms });
+    $("req2").textContent = json({
+      state: {
+        site: SITE, question: plan.q,
+        categories: plan.chosen.map(function (id) { return Engine.catById[id].name; }),
+        narrowed_by_user: !!plan.filter
+      },
+      questions: [{ id: "article", type: "single_choice", choices: plan.pool.map(function (x) { return x.a.q; }).concat(["該当なし"]) }]
+    });
+    $("res2").textContent = "問い合わせ中…";
+  }
+  function demoStage2(plan, ms, total) {
+    step(1, "done", ms + " ms・" + plan.top[0].a.q.slice(0, 14) + "… " + plan.top[0].rate + "%");
+    step(2, "done", (total / 1000).toFixed(2) + " 秒（" + total + " ms）");
+    step(3, "done", costLine());
+    var probs = {};
+    plan.pool.forEach(function (x) { probs[x.a.q] = p3(x.p); });
+    probs["該当なし"] = p3(plan.poolNone);
+    var shown = {};
+    plan.top.forEach(function (c) { shown[c.a.q] = c.rate; });
+    shown["該当なし"] = plan.none;
+    $("res2").textContent = json({ article: probs, elapsed_ms: ms }) +
+      "\n\n画面に出す値（" + (plan.mixed ? "分野が 2 つ以上にまたがるため、分野が偏らないように選んだ 3 件" : "上位 3 件") +
+      "と「該当なし」を合計 100% に直したもの）\n" + json(shown);
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll("[data-delay]"), function (b) {
+    b.addEventListener("click", function () { setDelay(b.getAttribute("data-delay")); });
+  });
+  function setDelay(d) {
+    S.delay = d;
+    Array.prototype.forEach.call(document.querySelectorAll("[data-delay]"), function (b) {
+      b.setAttribute("aria-pressed", String(b.getAttribute("data-delay") === d));
+    });
+  }
+  function setThreshold(v) {
+    S.threshold = v;
+    $("th").value = v;
+    $("th-out").textContent = v + "%";
+    if (S.result && hasQuery()) noticeForResult();
+  }
+  $("th").addEventListener("input", function () { setThreshold(Number(this.value)); });
+  $("reset").addEventListener("click", function () {
+    stopTyping();
+    setDelay("normal"); setThreshold(30);
+    S.count = 0; S.filter = null;
+    input.value = "";
+    if (location.hash && location.hash !== "#/") location.hash = "#/";
+    request(true);
+    $("req1").textContent = "まだ検索していません。"; $("res1").textContent = "—";
+    $("req2").textContent = "まだ検索していません。"; $("res2").textContent = "—";
+  });
+
+  /* ---- はじめの表示 ---- */
+  var demoParam = params.get("demo");
+  setDock(demoParam === "0" ? "off" : (wide() ? "open" : "mini"));
+  buildCats();
+  var q0 = params.get("q");
+  var c0 = params.get("cat");
+  if (c0 && Engine.catById[c0]) S.filter = c0;
+  if (q0) input.value = q0;
+  route();
+  request(true);
+})();
+</script>
+<!-- demo-panel-phone -->
+<style>
+.dock .ver-row { flex-wrap: wrap; }
+.dock #ver-notes li:not([data-now="true"]) { display: none; }
+@media (max-width: 1179.98px) {
+  .dock { height: 55vh !important; height: 55dvh !important; }
+  html[data-dock="mini"] .dock { height: 48px !important; }
+  .dock-head { position: relative; padding-top: 18px; }
+  .dock-head::before { content: ""; position: absolute; left: 50%; top: 7px; width: 36px; height: 4px; margin-left: -18px; border-radius: 2px; background: var(--line-strong); }
+  .dock-head > .dock-sub:not(.ver-note-one) { display: none; }
+  .dock .dbtn { min-height: 44px; }
+  .dock [data-version] { min-width: 44px; }
+  .dock-head .ctrl { grid-template-columns: 2.6em minmax(0, 1fr); align-items: start; }
+  .dock-head .ctrl > span { padding-top: 11px; }
+  .dock .turn-ctrl { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .dock .turn-ctrl > span { padding-top: 0; }
+  .dock-body { scrollbar-width: none; }
+  .dock-body::-webkit-scrollbar { display: none; }
+}
+</style>
+<script>
+(function () {
+  var root = document.documentElement, dock = document.getElementById("dock");
+  if (!dock) return;
+  var btns = dock.querySelectorAll("[data-version]");
+  if (btns.length) {
+    var row = btns[0].parentNode, cur = dock.querySelector('[data-version][aria-pressed="true"]');
+    row.classList.add("ver-row");
+    /* 版の説明は、いま開いている版の 1 行だけにする */
+    var note = document.getElementById("ver-notes") ? null : row.parentNode.nextElementSibling;
+    if (note && cur && note.textContent.indexOf("版 ") === 0) {
+      var mine = note.textContent.split("（いまは")[0].split("　／　").filter(function (x) { return x.indexOf("版 " + cur.textContent.trim() + "：") === 0; })[0];
+      if (mine) note.textContent = mine;
+      note.classList.add("ver-note-one");
+    }
+  }
+  /* 狭い画面では、パネルの外を押すと閉じる */
+  var narrow = window.matchMedia("(max-width: 1179.98px)");
+  document.addEventListener("pointerdown", function (e) {
+    if (!narrow.matches || root.getAttribute("data-dock") !== "open" || dock.contains(e.target)) return;
+    root.setAttribute("data-dock", document.getElementById("dock-tab") ? "tab" : "mini");
+  }, true);
+})();
+</script>
+</body>
+</html>
